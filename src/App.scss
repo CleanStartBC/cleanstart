@@ -101,7 +101,7 @@ h1,h2,h3,h4,h5,h6 {
 .custom-icon img {
   width: 120px;
   display: inline-block;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
