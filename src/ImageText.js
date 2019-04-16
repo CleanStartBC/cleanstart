@@ -16,10 +16,10 @@ export default class ImageText extends Component {
 
               <Row className={`justify-content-center ${item.alignment}`} key={index}>
                 <Col>
-                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-0" />
+                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
                 </Col>
                 <Col lg={item.width} className="pl-lg-5">
-                  <StructuredText lgp>
+                  <StructuredText largetext>
                     {RichText.render(item.body1, PrismicConfig.linkResolver)}
                   </StructuredText>
                 </Col>
@@ -31,12 +31,12 @@ export default class ImageText extends Component {
 
               <Row className={`justify-content-center ${item.alignment}`} key={index}>
                 <Col lg={item.width}>
-                  <StructuredText lgp>
+                  <StructuredText largetext>
                     {RichText.render(item.body1, PrismicConfig.linkResolver)}
                   </StructuredText>
                 </Col>
                 <Col className="pl-lg-5">
-                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-0" />
+                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
                 </Col>
               </Row>
 
@@ -53,13 +53,13 @@ export default class ImageText extends Component {
             ?
             <Fragment>
               <Col lg="12">
-                { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText lgp>{RichText.render(slice.primary.body1)}</StructuredText>) }
+                { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText >{RichText.render(slice.primary.body1)}</StructuredText>) }
                 {items}
               </Col>
             </Fragment>
             :
             <Fragment>
-              { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<Col lg={{ size: 3 }}><StructuredText lgp>{RichText.render(slice.primary.body1)}</StructuredText></Col>) }
+              { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<Col lg={{ size: 3 }}><StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left" >{RichText.render(slice.primary.body1)}</StructuredText></Col>) }
               <Col lg={{ size: 9 }}>
                 {items}
               </Col>

@@ -7,10 +7,12 @@ const StyledParallaxBanner = styled(ParallaxBanner)`
   height: auto !important;
   padding: ${props => (props.height === "large") ? "10rem 0" : "6rem 0"};
 `
-
 const StyledSection = styled.section`
   padding-top: 6rem;
   padding-bottom: ${props => props.pbt ? "3rem" : "6rem"};
+  @media (max-width: 575.98px) {
+    padding-top:3rem;
+  }
 `
 
 const NavbarBrandImage = styled.img`
@@ -23,45 +25,22 @@ const NavbarBrandImage = styled.img`
   }
 `
 
-const TitleContainer = styled.div`
-  h1 {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 0.5rem;
-  }
-  p {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 0;
-    line-height: 1.4;
-  }
-`
 
-const SliderTitle = styled(TitleContainer)`
-  h1 {
-    font-size: 3.25rem;
-  }
-  p {
-    margin-bottom: 0.75rem;
-  }
-`
 
 
 const StructuredText = styled.div`
   z-index: 2;
   position: relative;
-  margin-bottom: ${props => props.mbt ? "3rem" : "0" };
-  padding: ${props => props.padding || "0" };
   p {
-    font-size: ${props => props.lgp ? "1.125rem" : "1rem"};
+    ${({ largetext }) => largetext && `
+      font-size: 1.125rem;
+      @media (max-width: 575.98px) {
+        font-size: 1rem;
+      }
+    `}
     &:last-child {
       margin-bottom: 0;
     }
-  }
-  .lead {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: normal;
   }
   a {
     font-weight: 500;
@@ -120,6 +99,15 @@ const Feature = styled(Media)`
   margin-bottom: 2rem;
 `
 
+const SliderTitleContainer = styled.div`
+  h1 {
+    font-size: 3.25rem;
+    @media (max-width: 1200px) {
+      font-size: calc(1.45rem + 2.4vw);
+    }
+  }
+`
+
 export {
   StyledParallaxBanner,
   StructuredText,
@@ -128,11 +116,9 @@ export {
   StyledSection,
   FaCircle,
   Feature,
-
+  SliderTitleContainer,
   QuestionAnswerContainer,
   NavbarBrandImage,
-  TitleContainer,
-  SliderTitle,
   TestimonialContainer,
   SliderLink
 }

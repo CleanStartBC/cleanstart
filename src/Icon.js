@@ -29,7 +29,7 @@ export default class Icon extends Component {
                 {isCircle}
               </Media>
               <Media body className="pl-3">
-                <StructuredText lgp>
+                <StructuredText largetext >
                   {RichText.render(item.body1, PrismicConfig.linkResolver)}
                 </StructuredText>
               </Media>
@@ -42,7 +42,7 @@ export default class Icon extends Component {
             <Feature>
               <Media body>
                 {isCircle}
-                <StructuredText lgp style={{ marginTop: '2rem' }}>
+                <StructuredText largetext style={{ marginTop: '2rem' }}>
                   {RichText.render(item.body1, PrismicConfig.linkResolver)}
                 </StructuredText>
               </Media>
@@ -67,7 +67,7 @@ export default class Icon extends Component {
             :
             <Fragment>
               <Col lg={{ size: 3 }}>
-                { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
+                { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left">{RichText.render(slice.primary.body1)}</StructuredText>) }
               </Col>
               <Col lg={{ size: 9 }}>
                 <Row>

@@ -23,7 +23,7 @@ export default class QuestionAnswer extends Component {
           <h5 className="mb-0">{RichText.asText(cat.question)}</h5>
         </Button>
         <Collapse isOpen={this.props.isOpen}>
-          <StructuredText pfs="1.0675rem" padding="1rem 0 0">
+          <StructuredText className="pt-3">
             {RichText.render(cat.answer)}
           </StructuredText>
         </Collapse>

@@ -14,6 +14,9 @@ const TopFooter = styled.div`
   padding: 6rem 0;
   background: #79b241;
   color: #fff;
+  @media (max-width: 575.98px) {
+    padding: 3rem 0;
+  }
 `
 const BottomFooter = styled.div`
   width: 100%;
@@ -63,7 +66,7 @@ export default class Footer extends Component {
             <Container fluid>
               <Row>
                 <Col md="2">
-                  <a href="/"><img src={document.image.url} alt={document.image.alt} className="img-fluid" /></a>
+                  <a href="/" className="d-block w-100 text-center"><img src={document.image.url} alt={document.image.alt} className="img-fluid mb-5 mb-md-0 footerImg" /></a>
                 </Col>
                 <Col md={{ size: 9, offset: 1 }}>
                   <Row>{slices}</Row>
@@ -74,13 +77,13 @@ export default class Footer extends Component {
           <BottomFooter>
             <Container fluid>
               <Row>
-                <Col md="6" className="text-md-left my-auto">
+                <Col md="6" className="text-center text-md-left my-auto">
                   <p className="small mb-0">
                     <FontAwesomeIcon icon={['far', 'map-marker-alt']} className="mr-2" />
                     210 – 3989 Henning Drive, Burnaby BC V5C 6P8
                   </p>
                 </Col>
-                <Col md="6" className="text-md-right my-auto">
+                <Col md="6" className="text-center text-md-right my-auto">
                   <p className="small mb-0">{document.copyright}</p>
                 </Col>
               </Row>

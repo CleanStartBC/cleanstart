@@ -9,11 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import MagicSliderDots from 'react-magic-slider-dots';
 import 'react-magic-slider-dots/dist/magic-dots.css';
-import { SliderTitle, StyledParallaxBanner, SliderLink } from './styles';
+import { SliderTitleContainer, StyledParallaxBanner, SliderLink } from './styles';
 
 const StyledBanner = styled(StyledParallaxBanner)`
 	height: auto !important;
 	padding: 12rem 0;
+	@media (max-width: 575.98px) {
+		height: 50vh;
+	}
 `
 
 function NextArrow(props) {
@@ -71,10 +74,10 @@ export default class Carousel extends Component {
 							<Row>
 								<Col md={item.span} className={ (item.alignment === 'center') && 'mx-auto' }>
 									<SliderLink href={Link.url(item.link, PrismicConfig.linkResolver)}>
-										<SliderTitle>
+										<SliderTitleContainer>
 											{RichText.render(item.title1)}
 											{RichText.render(item.subtext)}
-										</SliderTitle>
+										</SliderTitleContainer>
 									</SliderLink>
 								</Col>
 							</Row>

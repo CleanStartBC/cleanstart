@@ -13,7 +13,7 @@ export default class ImageIconList extends Component {
       if (slice.primary.circle === 'true') {
         return(
           <Col lg={item.width} key={index}>
-            <Feature mbtwo className={item.alignment}>
+            <Feature className={item.alignment}>
               <Media left>
                 <span className={`fa-layers fa-fw mt-3 mr-5`}>
                   <FaCircle icon="circle" size="3x" />
@@ -31,7 +31,7 @@ export default class ImageIconList extends Component {
       } else {
         return(
           <Col lg={item.width} key={index} >
-            <Feature mbtwo>
+            <Feature>
               <Media left>
                 <FontAwesomeIcon icon={['fal', icon]} size="2x" fixedWidth className="fontIcon mr-3"/>
               </Media>
@@ -54,10 +54,11 @@ export default class ImageIconList extends Component {
               ?
               <Fragment>
                 <Col lg="5" >
-                  <ResponsiveImage src={slice.primary.image.url} alt={slice.primary.image.alt} className="mb-4 mb-sm-0" />
+                  <ResponsiveImage src={slice.primary.image.url} alt={slice.primary.image.alt} className="mb-4 mb-sm-4 mb-md-0" />
+
                 </Col>
                 <Col lg={{ size: 6, offset: 1 }}>
-                  { ((typeof slice.primary.grid_body !== 'undefined' && typeof slice.primary.grid_body[0] !== 'undefined') && slice.primary.grid_body[0].text ) && (<StructuredText lgp mbt>{RichText.render(slice.primary.grid_body)}</StructuredText>) }
+                  { ((typeof slice.primary.grid_body !== 'undefined' && typeof slice.primary.grid_body[0] !== 'undefined') && slice.primary.grid_body[0].text ) && (<StructuredText  >{RichText.render(slice.primary.grid_body)}</StructuredText>) }
                   <Row>
                     {items}
                   </Row>
@@ -66,13 +67,13 @@ export default class ImageIconList extends Component {
               :
               <Fragment>
                 <Col lg={{size: 7,order: 1}} md={{ size: 8, order: 12}} xs={{ order: 12 }}>
-                  { ((typeof slice.primary.grid_body !== 'undefined' && typeof slice.primary.grid_body[0] !== 'undefined') && slice.primary.grid_body[0].text ) && (<Col lg="12"><StructuredText lgp mbt>{RichText.render(slice.primary.grid_body)}</StructuredText></Col>) }
+                  { ((typeof slice.primary.grid_body !== 'undefined' && typeof slice.primary.grid_body[0] !== 'undefined') && slice.primary.grid_body[0].text ) && (<Col lg="12"><StructuredText className="mb-5">{RichText.render(slice.primary.grid_body)}</StructuredText></Col>) }
                   <Row>
                     {items}
                   </Row>
                 </Col>
                 <Col lg={{ size: 4, offset: 1, order: 12}} md={{ size: 8, order: 1}} xs={{ order: 1 }}>
-                  <ResponsiveImage src={slice.primary.image.url} alt={slice.primary.image.alt} className="mb-3 mb-sm-0" />
+                  <ResponsiveImage src={slice.primary.image.url} alt={slice.primary.image.alt} className="mb-4 mb-sm-4 mb-md-0" />
                 </Col>
               </Fragment>
             }

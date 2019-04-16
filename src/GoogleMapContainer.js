@@ -36,6 +36,7 @@ class GoogleMapContainer extends Component {
     const { address } = this.props;
     const mapStyle = {
       width: '100%',
+      maxWidth: '100%',
       height: '220px',
       position: 'relative',
     }

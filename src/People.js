@@ -6,15 +6,6 @@ import { StructuredText } from './styles';
 
 const Section = styled.section`
   padding: 6rem 0 3rem;
-  h1,h2 {
-    color: #447638;
-  }
-  h3,h4 {
-    color: #79b241;
-  }
-  h5,h6 {
-    color: #888;
-  }
 `
 
 export default class People extends Component {
@@ -22,7 +13,7 @@ export default class People extends Component {
     const { slice } = this.props;
     const items = slice.items.map(function(item, index){
       return(
-        <Col lg="3" className="text-center" key={index} >
+        <Col md="3" sm="4" xs="6" className="text-center" key={index} >
           <div className="px-3 pb-5">
             <img src={item.image.url} alt="CleanStart - Hoarding & Junk Removal" className="rounded-circle img-fluid mb-3" />
               {RichText.render(item.name1)}
@@ -47,7 +38,7 @@ export default class People extends Component {
               :
               <Fragment>
                 <Col lg={{ size: 3 }}>
-                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText >{RichText.render(slice.primary.body1)}</StructuredText>) }
+                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left" >{RichText.render(slice.primary.body1)}</StructuredText>) }
                 </Col>
                 <Col lg={{ size: 9 }}>
                   <Row className={`${slice.primary.alignment} justify-content-center`}>

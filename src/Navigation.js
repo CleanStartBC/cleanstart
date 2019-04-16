@@ -110,7 +110,7 @@ export default class Navigation extends Component {
 				        onClick={this.toggle}
 				        active={this.state.isOpen}
 								burger="squeeze"
-								color="#005891"
+								color="#79b241"
 								hoverOpacity={0.8}
 								scale={1}
 								marginTop='0.625rem'

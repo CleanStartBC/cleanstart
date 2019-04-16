@@ -14,7 +14,7 @@ export default class Logos extends Component {
       );
     });
     return(
-      <StyledSection pb="3rem" className="bg-white">
+      <StyledSection className="bg-white" style={{ paddingBottom: '3rem' }}>
         <Container fluid>
           { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
           <Row className="justify-content-center">

@@ -31,14 +31,14 @@ export default class BulletList extends Component {
               ?
               <Fragment>
                 <Col lg="12">
-                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText mbt>{RichText.render(slice.primary.body1)}</StructuredText>) }
+                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText className="mb-5">{RichText.render(slice.primary.body1)}</StructuredText>) }
                 </Col>
                 {listItems}
               </Fragment>
               :
               <Fragment>
                 <Col lg={{ size: 3 }}>
-                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
+                  { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left">{RichText.render(slice.primary.body1)}</StructuredText>) }
                 </Col>
                 <Col lg={{ size:9 }}>
                   <Row>

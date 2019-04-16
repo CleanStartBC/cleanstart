@@ -19,6 +19,22 @@ export default class Testimonials extends Component {
       dots: true,
 			autoplaySpeed: 6000,
       arrows:false,
+      responsive: [
+         {
+           breakpoint: 480,
+           settings: {
+             slidesToShow: 1,
+             slidesToScroll: 1
+           }
+         },
+         {
+           breakpoint: 720,
+           settings: {
+             slidesToShow: 1,
+             slidesToScroll: 1
+           }
+         }
+       ],
       appendDots: (dots) => {
         return <MagicSliderDots dots={dots} numDotsToShow={3} dotWidth={30} />
       }
@@ -33,7 +49,7 @@ export default class Testimonials extends Component {
             className="mb-3"
             color="rgb(121, 178, 65)"
           />
-          <StructuredText lgp>
+          <StructuredText largetext>
             {RichText.render(item.quote)}
           </StructuredText>
           <h6 className="mt-4">{item.name1}</h6>
@@ -50,7 +66,7 @@ export default class Testimonials extends Component {
                 ]}
       >
         <Container fluid>
-          { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText mbt>{RichText.render(slice.primary.body1)}</StructuredText>) }
+          { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText className="mb-5" >{RichText.render(slice.primary.body1)}</StructuredText>) }
           <Slider {...settings}>
             {items}
           </Slider>

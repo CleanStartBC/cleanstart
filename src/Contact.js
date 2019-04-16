@@ -7,8 +7,12 @@ import styled from 'styled-components';
 
 const MapWrapper = styled.div`
 	width: 100%;
+	max-width: 100%;
 	height: 220px;
 	margin-bottom: 3.5rem;
+	@media (max-width: 575.98px) {
+		margin-right: -1rem;
+	}
 `
 
 export default class Contact extends Component {
@@ -60,7 +64,7 @@ export default class Contact extends Component {
 								</div>
 							</Col>
 
-							<Col lg={{ size: 3 }} className="pl-5 border-left">
+							<Col lg={{ size: 3 }} className="pl-lg-5 mt-4 mt-md-0 border-left">
 								{items}
 
 							</Col>
