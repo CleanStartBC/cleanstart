@@ -6,6 +6,9 @@ import { Media } from 'reactstrap';
 const StyledParallaxBanner = styled(ParallaxBanner)`
   height: auto !important;
   padding: ${props => (props.height === "large") ? "10rem 0" : "6rem 0"};
+  @media (max-width: 575.98px) {
+    padding: 6rem 0;
+  }
 `
 const StyledSection = styled.section`
   padding-top: 6rem;
