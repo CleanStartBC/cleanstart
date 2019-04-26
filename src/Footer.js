@@ -3,10 +3,8 @@ import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
-
 import Menu from './Menu';
 import SocialMedia from './SocialMedia';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopFooter = styled.div`

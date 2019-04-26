@@ -17,7 +17,6 @@ export default class QuestionAnswer extends Component {
     const cat = this.props.cat;
 
     return (
-
       <QuestionAnswerContainer>
         <Button className="btn-link p-0" color="link" onClick={this.toggle}>
           <h5 className="mb-0">{RichText.asText(cat.question)}</h5>

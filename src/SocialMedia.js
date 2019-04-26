@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import PrismicConfig from './prismic-configuration';
 import { Link, RichText } from 'prismic-reactjs';
 import styled from 'styled-components';
@@ -24,27 +24,25 @@ const MenuLink = styled.a`
   }
 `
 
-export default class SocialMedia extends Component {
-  render(){
-    const { slice } = this.props;
-    const items = slice.items.map(function(item, index){
-      const icon = item.font_awesome;
-      return(
-        <li className="nav-item" key={index}>
-          <MenuLink href={Link.url(item.link, PrismicConfig.linkResolver)} >
-            <FontAwesomeIcon icon={['fab', icon]} fixedWidth className="mr-2" />
-            {item.label}
-          </MenuLink>
-        </li>
-      )
-    });
-    return(
-      <Col sm="3" xs="6">
-        <MenuTitle>{RichText.asText(slice.primary.title)}</MenuTitle>
-        <ul className="nav flex-column">
-          {items}
-        </ul>
-      </Col>
-    )
-  }
-}
+const MenuItems = props => (
+  <Fragment>
+    {props.items.map(({ link, label, font_awesome }) =>
+      <li className="nav-item" key={label} >
+        <MenuLink href={Link.url(link, PrismicConfig.linkResolver)} >
+          <FontAwesomeIcon icon={['fab', font_awesome]} fixedWidth className="mr-2" />
+          {label}
+        </MenuLink>
+      </li>
+    )}
+  </Fragment>
+)
+
+const SocialMedia = props => (
+  <Col sm="3" xs="6" className="mb-3 mb-sm-0">
+    <MenuTitle>{RichText.asText(props.slice.primary.title)}</MenuTitle>
+    <ul className="nav flex-column">
+      <MenuItems items={props.slice.items} />
+    </ul>
+  </Col>
+)
+export default SocialMedia

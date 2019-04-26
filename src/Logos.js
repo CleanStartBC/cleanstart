@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { StyledSection, StructuredText } from './styles';
 
-export default class Logos extends Component {
-  render () {
-		const { slice } = this.props;
-    const items = slice.items.map(function(item, itemIndex){
-      return(
-        <Col md="3" sm="4" xs="6" key={itemIndex}>
-          <img src={item.image.url} alt="" className="img-fluid" />
-        </Col>
-      );
-    });
-    return(
-      <StyledSection className="bg-white" style={{ paddingBottom: '3rem' }}>
-        <Container fluid>
-          { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
-          <Row className="justify-content-center">
-						<Col md="10" className="mx-auto">
-							<Row>
-								{items}
-							</Row>
-						</Col>
+const Logo = props => (
+  <Fragment>
+    {props.items.map(({ image }) =>
+      <Col md="3" sm="4" xs="6" key={image.url}>
+        <img src={image.url} alt="" className="img-fluid" />
+      </Col>
+    )}
+  </Fragment>
+)
+
+const Logos = props => (
+  <StyledSection className="bg-white" style={{ paddingBottom: '3rem' }}>
+    <Container fluid>
+      { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(props.slice.primary.body1)}</StructuredText>) }
+      <Row className="justify-content-center">
+        <Col md="10" className="mx-auto">
+          <Row>
+            <Logo items={props.slice.items} />
           </Row>
-        </Container>
-      </StyledSection>
-    )
-  }
-}
+        </Col>
+      </Row>
+    </Container>
+  </StyledSection>
+)
+export default Logos

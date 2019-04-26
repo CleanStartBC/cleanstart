@@ -6,7 +6,6 @@ import Faq from './Faq';
 import People from './People';
 import ImageBlocks from './ImageBlocks';
 import PostIndex from './PostIndex';
-import Content from './Content';
 import Icon from './Icon';
 import Header from './Header';
 import Logos from './Logos';
@@ -97,11 +96,7 @@ export default class Page extends Component {
 					return(
 						<Logos slice={slice} key={index} />
 					);
-				} else if (slice.slice_type === 'content1') {
-					return(
-						<Content slice={slice} key={index} />
-					);
-				} else if (slice.slice_type === 'columns') {
+				}  else if (slice.slice_type === 'columns') {
 					return(
 						<Columns slice={slice} key={index} />
 					);

@@ -2,7 +2,19 @@ import React, { Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import { StructuredText, StyledSection } from './styles';
-import ColumnsContent from './ColumnsContent';
+import PrismicConfig from './prismic-configuration';
+
+const ColumnsContent = props => (
+  <Fragment>
+    {props.items.map(({ width, body1 }, index) =>
+      <Col md={width} key={index}>
+        <StructuredText largetext style={{ marginBottom: '3rem' }} >
+          {RichText.render(body1, PrismicConfig.linkResolver)}
+        </StructuredText>
+      </Col>
+    )}
+  </Fragment>
+)
 
 const Columns = props => (
   <StyledSection pbt className={`${props.slice.primary.color}`}>
