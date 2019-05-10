@@ -132,7 +132,8 @@ export default class Page extends Component {
 	    return (
 	      <Fragment>
 					<Helmet>
-            <title>{RichText.asText(document.title) + " - CleanStart"}</title>
+            <title>{RichText.asText(document.meta_title) + " | CleanStart"}</title>
+						<meta name="description" content={RichText.asText(document.meta_description)} />
           </Helmet>
 					<main>
 						{slices}
@@ -144,7 +145,8 @@ export default class Page extends Component {
 			return(
 				<Fragment>
 					<Helmet>
-						<title>Page Not Found - CleanStart</title>
+						<title>Page Not Found | CleanStart - Metro Vancouver and Vancouver Island Junk Removal</title>
+						<meta name="description" content="CleanStart - Metro Vancouver and Vancouver Island Junk Removal" />
 					</Helmet>
 					<main>
 						<NotFound />

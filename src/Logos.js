@@ -7,7 +7,7 @@ const Logo = props => (
   <Fragment>
     {props.items.map(({ image }) =>
       <Col md="3" sm="4" xs="6" key={image.url}>
-        <img src={image.url} alt="" className="img-fluid" />
+        <img src={image.url} alt={image.alt} className="img-fluid" />
       </Col>
     )}
   </Fragment>

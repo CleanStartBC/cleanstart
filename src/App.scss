@@ -65,7 +65,8 @@ $theme-colors: (
 //   xl: 1140px
 // );
 
-
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 @import '~bootstrap/scss/bootstrap.scss';
 $enable-responsive-font-sizes: true;
 

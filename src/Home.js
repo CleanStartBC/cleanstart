@@ -73,7 +73,8 @@ export default class Home extends Component {
 	    return (
 	      <Fragment>
 					<Helmet>
-            <title>{RichText.asText(document.title) + " - CleanStart"}</title>
+            <title>{RichText.asText(document.meta_title) + " | CleanStart"}</title>
+						<meta name="description" content="CleanStart - Metro Vancouver and Vancouver Island Junk Removal" />
           </Helmet>
 					<main>
 						{slices}

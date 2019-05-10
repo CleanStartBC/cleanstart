@@ -102,7 +102,7 @@ export default class Navigation extends Component {
 		        <NavbarBrand href="/">
 							<NavbarBrandImage
 								src={document.image.url}
-								alt={RichText.asText(document.title)}
+								alt={document.image.alt}
 							/>
 						</NavbarBrand>
 						<div className="navbar-toggler">
@@ -130,7 +130,7 @@ export default class Navigation extends Component {
 									</Media>
 								</Media>
 							</a>
-							<Button tag="a" href="#" color="primary" size="lg">Book Now</Button>
+							<Button color="primary" size="lg">Book Now</Button>
 		        </Collapse>
 
 					</Container>
