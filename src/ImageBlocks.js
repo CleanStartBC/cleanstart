@@ -21,7 +21,7 @@ export default class ImageBlocks extends Component {
             <Container fluid>
               <Row className={`justify-content-center ${item.alignment}`}>
                 <Col md={item.image_width} className="pr-lg-5">
-                  <ResponsiveImage src={item.image.url} alt="" />
+                  <ResponsiveImage src={item.image.url} alt={item.image.alt} />
                 </Col>
                 <Col md={item.width} >
                   <StructuredText pfs="1.125rem">
@@ -50,7 +50,7 @@ export default class ImageBlocks extends Component {
                   </StructuredText>
                 </Col>
                 <Col lg={{ size: 5, offset: 1 }}>
-                  <ResponsiveImage src={item.image.url} alt="" />
+                  <ResponsiveImage src={item.image.url} alt={item.image.alt} />
                 </Col>
               </Row>
             </Container>

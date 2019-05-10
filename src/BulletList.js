@@ -6,8 +6,8 @@ import { StructuredText, StyledSection } from './styles';
 
 const ListItem = props => (
   <Fragment>
-    {props.items.map(({ size, alignment, item, font_awesome }) =>
-      <Col lg={size} xs="6">
+    {props.items.map(({ size, alignment, item, font_awesome }, index) =>
+      <Col lg={size} xs="6" key={index}>
         <Media className={`${alignment}`} style={{ marginBottom: '1.5rem' }}>
           <Media left>
             <FontAwesomeIcon icon={['fal', font_awesome]} size="2x" fixedWidth className="mr-3 fontIcon"/>
