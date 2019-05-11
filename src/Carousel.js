@@ -11,6 +11,10 @@ import MagicSliderDots from 'react-magic-slider-dots';
 import 'react-magic-slider-dots/dist/magic-dots.css';
 import { SliderTitleContainer, StyledParallaxBanner, SliderLink } from './styles';
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./Carousel.scss"
+
 const StyledBanner = styled(StyledParallaxBanner)`
 	height: auto !important;
 	padding: 12rem 0;

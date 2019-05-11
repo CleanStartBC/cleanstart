@@ -37,29 +37,6 @@ $theme-colors: (
   "info": $yellow,
 );
 
-
-// $grid-breakpoints: (
-//   // Extra small screen / phone
-//   xs: 0,
-//   // Small screen / phone
-//   sm: 576px,
-//   // Medium screen / tablet
-//   md: 768px,
-//   // Large screen / desktop
-//   lg: 992px,
-//   // Extra large screen / wide desktop
-//   xl: 1200px
-// );
-//
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1140px
-// );
-
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
 @import '~bootstrap/scss/bootstrap.scss';
 $enable-responsive-font-sizes: true;
 
@@ -163,26 +140,6 @@ p {
 .pricing-highlight {
   border: 1px solid $green !important;
 }
-
-.slick-arrow {
-  position: absolute;
-  z-index: 20;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255,255,255,0.25);
-  height: 48px;
-  width: 48px !important;
-  &:hover {
-    color: rgba(255,255,255,0.75);
-  }
-}
-.slick-prev {
-  left:1rem !important;
-}
-.slick-next {
-  right: 1rem !important;
-}
-
 
 .navbar-dark {
   padding-top: 0;
