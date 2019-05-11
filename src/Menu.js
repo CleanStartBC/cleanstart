@@ -13,8 +13,8 @@ const MenuTitle = styled.h6`
 
 const MenuLink = styled.a`
   display: block;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   padding-left: 0;
   padding-right: 0;
   color: #fff;
