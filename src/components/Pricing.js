@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {  RichText } from 'prismic-reactjs';
 import { Container, Card, CardHeader, Button, CardDeck, CardBody } from 'reactstrap';
-import { StyledParallaxBanner, StructuredText } from './styles';
+import { StyledParallaxBanner, StructuredText } from '../styles';
 
 export default class Pricing extends Component {
   render(){

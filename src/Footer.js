@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react'
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
-import Menu from './Menu';
-import SocialMedia from './SocialMedia';
+import Menu from './components/Menu';
+import SocialMedia from './components/SocialMedia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TopFooter, BottomFooter } from './styles'
 

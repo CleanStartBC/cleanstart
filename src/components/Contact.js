@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapContainer from './GoogleMapContainer';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledSection, MapWrapper } from './styles';
+import { StyledSection, MapWrapper } from '../styles';
 
 export default class Contact extends Component {
   render(){

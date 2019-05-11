@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col, Media } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PrismicConfig from './prismic-configuration';
-import { Feature, FaCircle, StyledSection, StructuredText, ResponsiveImage } from './styles';
+import PrismicConfig from '../prismic-configuration';
+import { Feature, FaCircle, StyledSection, StructuredText, ResponsiveImage } from '../styles';
 
 export default class ImageIconList extends Component {
   render () {

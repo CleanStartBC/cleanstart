@@ -4,13 +4,13 @@ import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 
-import Carousel from './Carousel';
-import Logos from './Logos';
-import CallToAction from './CallToAction';
-import Testimonials from './Testimonials';
-import Columns from './Columns';
-import ImageIconList from './ImageIconList';
-import ImageText from './ImageText';
+import Carousel from './components/Carousel';
+import Logos from './components/Logos';
+import CallToAction from './components/CallToAction';
+import Testimonials from './components/Testimonials';
+import Columns from './components/Columns';
+import ImageIconList from './components/ImageIconList';
+import ImageText from './components/ImageText';
 
 export default class Home extends Component {
 	constructor(props) {

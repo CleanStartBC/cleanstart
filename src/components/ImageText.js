@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledSection, StructuredText, ResponsiveImage } from './styles';
+import { StyledSection, StructuredText, ResponsiveImage } from '../styles';
 
 export default class ImageText extends Component {
   render(){

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { StructuredText, StyledParallaxBanner } from './styles';
+import { StructuredText, StyledParallaxBanner } from '../styles';
 
 export default class CallToAction extends Component {
   render() {

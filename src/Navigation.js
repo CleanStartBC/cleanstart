@@ -18,11 +18,9 @@ import {
 	DropdownMenu } from 'reactstrap';
 
 import Burger from 'react-css-burger';
-import NavLink from './NavLink';
-import { NavbarBrandImage } from './styles';
+import NavLink from './components/NavLink';
 import styles from './navigation.module.scss';
-
-import { StyledNavbar } from './styles';
+import { StyledNavbar,  NavbarBrandImage } from './styles';
 
 
 

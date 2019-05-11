@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 
 import {
 	Container,

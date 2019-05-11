@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col, Media } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { StructuredText, StyledSection } from './styles';
+import { StructuredText, StyledSection } from '../styles';
 
 const ListItem = props => (
   <Fragment>

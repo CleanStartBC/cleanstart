@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col, Media } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Feature, FaCircle, StyledSection, StructuredText } from './styles';
+import { Feature, FaCircle, StyledSection, StructuredText } from '../styles';
 
 export default class Icon extends Component {
   render(){

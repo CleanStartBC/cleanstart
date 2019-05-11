@@ -1,7 +1,7 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledParallaxBanner } from './styles';
+import { StyledParallaxBanner } from '../styles';
 
 const Header = props => (
   <StyledParallaxBanner className={`${props.slice.primary.color}`} height={props.slice.primary.height}

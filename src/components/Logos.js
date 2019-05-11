@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
-import { StyledSection, StructuredText } from './styles';
+import { StyledSection, StructuredText } from '../styles';
 
 const Logo = props => (
   <Fragment>

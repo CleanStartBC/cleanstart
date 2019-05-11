@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { RichText } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledParallaxBanner, StructuredText, ResponsiveImage } from './styles';
+import { StyledParallaxBanner, StructuredText, ResponsiveImage } from '../styles';
 
 export default class ImageBlocks extends Component {
   render(){

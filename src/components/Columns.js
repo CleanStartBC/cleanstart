@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StructuredText, StyledSection } from './styles';
-import PrismicConfig from './prismic-configuration';
+import { StructuredText, StyledSection } from '../styles';
+import PrismicConfig from '../prismic-configuration';
 
 const ColumnsContent = props => (
   <Fragment>

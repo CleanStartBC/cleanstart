@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import Prismic from 'prismic-javascript';
 import { RichText } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledSection, StructuredText } from './styles';
+import { StyledSection, StructuredText } from '../styles';
 
 
 export default class PostIndex extends Component {

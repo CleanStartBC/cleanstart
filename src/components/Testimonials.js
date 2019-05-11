@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MagicSliderDots from 'react-magic-slider-dots';
 import 'react-magic-slider-dots/dist/magic-dots.css';
-import { StructuredText, StyledParallaxBanner, TestimonialContainer } from './styles';
+import { StructuredText, StyledParallaxBanner, TestimonialContainer } from '../styles';
 
 const settings = {
   infinite: true,

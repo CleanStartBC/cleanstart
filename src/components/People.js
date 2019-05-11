@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StructuredText, StyledSection } from './styles';
+import { StructuredText, StyledSection } from '../styles';
 import Person from './Person';
 
 

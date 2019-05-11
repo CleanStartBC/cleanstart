@@ -1,24 +1,24 @@
 import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
-
-import Faq from './Faq';
-import People from './People';
-import ImageBlocks from './ImageBlocks';
-import PostIndex from './PostIndex';
-import Icon from './Icon';
-import Header from './Header';
-import Logos from './Logos';
-import Pricing from './Pricing';
-import CallToAction from './CallToAction';
-import Testimonials from './Testimonials';
-import BulletList from './BulletList';
-import Subnav from './Subnav';
-import Contact from './Contact';
-import Columns from './Columns';
 import NotFound from './NotFound';
-import ImageIconList from './ImageIconList';
-import ImageText from './ImageText';
+
+import Faq from './components/Faq';
+import People from './components/People';
+import ImageBlocks from './components/ImageBlocks';
+import PostIndex from './components/PostIndex';
+import Icon from './components/Icon';
+import Header from './components/Header';
+import Logos from './components/Logos';
+import Pricing from './components/Pricing';
+import CallToAction from './components/CallToAction';
+import Testimonials from './components/Testimonials';
+import BulletList from './components/BulletList';
+import Subnav from './components/Subnav';
+import Contact from './components/Contact';
+import Columns from './components/Columns';
+import ImageIconList from './components/ImageIconList';
+import ImageText from './components/ImageText';
 
 
 export default class Page extends Component {

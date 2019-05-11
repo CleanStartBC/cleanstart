@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledSection } from './styles';
 import QuestionAnswer from './QuestionAnswer';
-import { StructuredText } from './styles';
+import { StyledSection, StructuredText } from '../styles';
 
 export default class Faq extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, Button } from 'reactstrap';
-import { StructuredText, QuestionAnswerContainer } from './styles';
+import { StructuredText, QuestionAnswerContainer } from '../styles';
 import { RichText } from 'prismic-reactjs';
 
 export default class QuestionAnswer extends Component {
