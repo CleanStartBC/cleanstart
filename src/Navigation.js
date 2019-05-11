@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import Prismic from 'prismic-javascript';
 import { Link } from 'prismic-reactjs';
 import PrismicConfig from './prismic-configuration';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -10,7 +9,6 @@ import {
 	Media,
 	Container,
 	Collapse,
-	Navbar,
 	NavbarBrand,
 	Nav,
 	NavItem,
