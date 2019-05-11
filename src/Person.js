@@ -4,8 +4,8 @@ import { Col } from 'reactstrap';
 
 const Person = props => (
   <Fragment>
-  {props.items.map(({ image, name1, title1 }) =>
-    <Col md="3" sm="4" xs="6" className="text-center" >
+  {props.items.map(({ image, name1, title1 }, index) =>
+    <Col md="3" sm="4" xs="6" className="text-center" key={index}>
       <div className="px-3 pb-5">
         <img src={image.url} alt="CleanStart - Hoarding & Junk Removal" className="rounded-circle img-fluid mb-3" />
           {RichText.render(name1)}

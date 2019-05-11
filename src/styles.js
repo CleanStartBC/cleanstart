@@ -34,6 +34,7 @@ const NavbarBrandImage = styled.img`
 const StructuredText = styled.div`
   z-index: 2;
   position: relative;
+  font-family: 'Graphik';
   p {
     ${({ largetext }) => largetext && `
       font-size: 1.125rem;

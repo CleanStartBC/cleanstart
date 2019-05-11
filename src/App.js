@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable';
 import Loading from './Loading';
 import Navigation from './Navigation';
-// import Page from './Page';
 import Preview from './Preview';
 import Footer from './Footer';
-// import Home from './Home';
 import 'fontawesome';
 import './App.scss';
 

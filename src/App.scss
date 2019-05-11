@@ -48,9 +48,9 @@ $enable-responsive-font-sizes: true;
 }
 
 body {
-  font-family: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Foundry Context", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  // font-family: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Foundry Context", "Oxygen",
+  //   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  //   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #231f20;
@@ -243,7 +243,11 @@ a.button {
   text-align: center;
 }
 
-
+.bg-white, .bg-light, .bg-secondary, .bg-primary, .bg-dark {
+  .lead {
+    font-family: 'Graphik';
+  }
+}
 
 .bg-white, .bg-light {
   h1,h2,h3,h4,h5,h6 {

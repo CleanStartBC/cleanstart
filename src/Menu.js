@@ -12,6 +12,7 @@ const MenuTitle = styled.h6`
 `
 
 const MenuLink = styled.a`
+  font-family: 'Graphik';
   display: block;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
