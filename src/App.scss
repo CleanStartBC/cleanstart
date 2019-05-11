@@ -3,6 +3,7 @@
 
 @font-face {
     font-family: 'Graphik';
+    font-display: fallback;
     src: url('./fonts/Graphik-Regular.woff2') format('woff2'),
         url('./fonts/Graphik-Regular.woff') format('woff');
     font-weight: normal;
@@ -11,6 +12,7 @@
 
 @font-face {
     font-family: 'Graphik';
+    font-display: fallback;
     src: url('./fonts/Graphik-Medium.woff2') format('woff2'),
         url('./fonts/Graphik-Medium.woff') format('woff');
     font-weight: 500;
@@ -19,6 +21,7 @@
 
 @font-face {
     font-family: 'Graphik';
+    font-display: fallback;
     src: url('./fonts/Graphik-Bold.woff2') format('woff2'),
         url('./fonts/Graphik-Bold.woff') format('woff');
     font-weight: bold;
