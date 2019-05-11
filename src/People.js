@@ -1,16 +1,14 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StructuredText } from './styles';
+import { StructuredText, StyledSection } from './styles';
 import Person from './Person';
 
-const Section = styled.section`
-  padding: 6rem 0 3rem;
-`
+
+
 
 const People = props => (
-  <Section className={`${props.slice.primary.color}`}>
+  <StyledSection pbt className={`${props.slice.primary.color}`}>
     <Container fluid>
       <Row>
         {
@@ -36,6 +34,6 @@ const People = props => (
         }
       </Row>
     </Container>
-  </Section>
+  </StyledSection>
 )
 export default People

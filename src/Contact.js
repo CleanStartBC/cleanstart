@@ -2,18 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapContainer from './GoogleMapContainer';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
-import { StyledSection } from './styles';
-import styled from 'styled-components';
-
-const MapWrapper = styled.div`
-	width: 100%;
-	max-width: 100%;
-	height: 220px;
-	margin-bottom: 3.5rem;
-	@media (max-width: 575.98px) {
-		margin-right: -1rem;
-	}
-`
+import { StyledSection, MapWrapper } from './styles';
 
 export default class Contact extends Component {
   render(){

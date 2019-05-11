@@ -24,16 +24,9 @@ import NavLink from './NavLink';
 import { NavbarBrandImage } from './styles';
 import styles from './navigation.module.scss';
 
-import styled from 'styled-components';
+import { StyledNavbar } from './styles';
 
-const StyledNavbar = styled(Navbar)`
-	font-family: 'Graphik';
-	border-top: 4px solid rgb(176, 211, 92);
-	box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
-	padding-top: 1rem !important;
-	padding-bottom: 1rem !important;
-	z-index: 10;
-`
+
 
 export default class Navigation extends Component {
   constructor(props) {

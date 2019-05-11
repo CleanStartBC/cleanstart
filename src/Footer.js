@@ -1,27 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
-import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 import Menu from './Menu';
 import SocialMedia from './SocialMedia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const TopFooter = styled.div`
-  width: 100%;
-  padding: 6rem 0;
-  background: #79b241;
-  color: #fff;
-  @media (max-width: 575.98px) {
-    padding: 3rem 0;
-  }
-`
-const BottomFooter = styled.div`
-  width: 100%;
-  padding: 1.5rem 0;
-  background: #447638;
-  color: #fff;
-`
+import { TopFooter, BottomFooter } from './styles'
 
 export default class Footer extends Component {
   constructor(props) {

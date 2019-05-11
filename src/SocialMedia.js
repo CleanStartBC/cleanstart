@@ -1,28 +1,10 @@
 import React, { Fragment } from 'react';
 import PrismicConfig from './prismic-configuration';
 import { Link, RichText } from 'prismic-reactjs';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col } from 'reactstrap';
+import { MenuTitle, MenuLink } from './styles'
 
-const MenuTitle = styled.h6`
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #fff;
-  margin-bottom: 1.5rem;
-`
-
-const MenuLink = styled.a`
-  display: block;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 0;
-  padding-right: 0;
-  color: #fff;
-  &:hover {
-    color: #fff;
-  }
-`
 
 const MenuItems = props => (
   <Fragment>

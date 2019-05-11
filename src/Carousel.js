@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import styled from 'styled-components';
 import { Link, RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import PrismicConfig from './prismic-configuration';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { SliderTitleContainer, StyledParallaxBanner, SliderLink } from './styles';
-
-
+import { SliderTitleContainer, StyledBanner, SliderLink } from './styles';
 import "./Carousel.scss";
-
 import MagicSliderDots from 'react-magic-slider-dots';
 import 'react-magic-slider-dots/dist/magic-dots.css';
 
-const StyledBanner = styled(StyledParallaxBanner)`
-	height: auto !important;
-	padding: 12rem 0;
-	@media (max-width: 575.98px) {
-		height: 50vh;
-	}
-`
+
 
 function NextArrow(props) {
   const { className, onClick } = props;
