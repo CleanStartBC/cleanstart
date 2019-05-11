@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Loadable from 'react-loadable';
+import Loading from './Loading';
 import Navigation from './Navigation';
-import Page from './Page';
+// import Page from './Page';
 import Preview from './Preview';
 import Footer from './Footer';
-import Home from './Home';
+// import Home from './Home';
 import 'fontawesome';
 import './App.scss';
+
+const AsyncHome = Loadable({
+  loader: () => import("./Home" /* webpackChunkName: "home" */),
+  loading: Loading
+});
+
+const AsyncPage = Loadable({
+  loader: () => import("./Page" /* webpackChunkName: "page" */),
+  loading: Loading
+});
+
 
 export default class App extends Component {
   render() {
@@ -16,8 +29,8 @@ export default class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/preview" render={routeProps => <Preview {...routeProps} />} />
-              <Route exact path='/' component={Home}/>
-              <Route exact path="/:uid" render={routeProps => <Page {...routeProps} prismicCtx={this.props.prismicCtx} />} />
+              <Route exact path='/' component={AsyncHome}/>
+              <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={this.props.prismicCtx} />} />
             </Switch>
           </Router>
           <Footer/>

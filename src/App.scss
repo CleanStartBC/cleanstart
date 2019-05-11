@@ -1,12 +1,5 @@
 
 
-@font-face {
-    font-family: 'Graphik Compact';
-    src: url('./fonts/GraphikCompact-Regular.woff2') format('woff2'),
-        url('./fonts/GraphikCompact-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'Graphik';
@@ -75,7 +68,7 @@ $enable-responsive-font-sizes: true;
 }
 
 body {
-  font-family: "Graphik", "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", "Foundry Context", "Oxygen",
+  font-family: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Foundry Context", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
