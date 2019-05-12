@@ -3,14 +3,20 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
-
-import Carousel from './components/Carousel';
+import Loadable from 'react-loadable';
+// import Carousel from './components/Carousel';
 import Logos from './components/Logos';
 import CallToAction from './components/CallToAction';
 import Testimonials from './components/Testimonials';
 import Columns from './components/Columns';
 import ImageIconList from './components/ImageIconList';
 import ImageText from './components/ImageText';
+import Loading from './Loading';
+
+const AsyncCarousel = Loadable({
+  loader: () => import("./components/Carousel" /* webpackChunkName: "home", webpackPrefetch: true */),
+  loading: Loading
+});
 
 export default class Home extends Component {
 	constructor(props) {
@@ -40,7 +46,7 @@ export default class Home extends Component {
 			const slices = document.body.map(function(slice, index){
 				if (slice.slice_type === 'slider') {
 		  		return(
-						<Carousel key={index} slice={slice} />
+						<AsyncCarousel key={index} slice={slice} />
 		  		);
 	      } else if (slice.slice_type === 'image_icon_list') {
 					return(
