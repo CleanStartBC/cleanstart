@@ -66,8 +66,13 @@ const AsyncImageText = Loadable({
   loader: () => import("./index").then(m => m.ImageText),
   loading: Loading
 });
+const AsyncCarousel = Loadable({
+  loader: () => import("./index").then(m => m.Carousel),
+  loading: Loading
+});
 
 export {
+  AsyncCarousel,
   AsyncFaq,
   AsyncPeople,
   AsyncImageBlocks,
@@ -83,5 +88,5 @@ export {
   AsyncContact,
   AsyncColumns,
   AsyncImageIconList,
-  AsyncImageText  
+  AsyncImageText
 }

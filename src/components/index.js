@@ -11,6 +11,7 @@ import Testimonials from './Testimonials';
 import BulletList from './BulletList';
 import Subnav from './Subnav';
 import Contact from './Contact';
+import Carousel from './Carousel';
 import Columns from './Columns';
 import ImageIconList from './ImageIconList';
 import ImageText from './ImageText';
@@ -31,5 +32,6 @@ export {
   Contact,
   Columns,
   ImageIconList,
-  ImageText
+  ImageText,
+  Carousel
 }

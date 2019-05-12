@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import NotFound from './NotFound';
+import Loading from "./Loading";
 
 import {
 	AsyncFaq,
@@ -155,9 +156,6 @@ export default class Page extends Component {
 			 </Fragment>
 			)
 		}
-  	return (
-      <Fragment>
-      </Fragment>
-    )
+  	return <Loading />
   }
 }

@@ -4,19 +4,17 @@ import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import Loadable from 'react-loadable';
-// import Carousel from './components/Carousel';
-import Logos from './components/Logos';
-import CallToAction from './components/CallToAction';
-import Testimonials from './components/Testimonials';
-import Columns from './components/Columns';
-import ImageIconList from './components/ImageIconList';
-import ImageText from './components/ImageText';
-import Loading from './Loading';
+import Loading from "./Loading";
 
-const AsyncCarousel = Loadable({
-  loader: () => import("./components/Carousel" /* webpackChunkName: "home", webpackPrefetch: true */),
-  loading: Loading
-});
+import {
+	AsyncCarousel,
+	AsyncLogos,
+	AsyncCallToAction,
+	AsyncTestimonials,
+	AsyncColumns,
+	AsyncImageIconList,
+	AsyncImageText
+} from './components/async';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -49,27 +47,27 @@ export default class Home extends Component {
 		  		);
 	      } else if (slice.slice_type === 'image_icon_list') {
 					return(
-						<ImageIconList key={index} slice={slice}/>
+						<AsyncImageIconList key={index} slice={slice}/>
 					)
   			} else if (slice.slice_type === 'image_text') {
 		  		return(
-						<ImageText slice={slice} key={index} />
+						<AsyncImageText slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'call_to_action') {
 		  		return(
-						<CallToAction slice={slice} key={index} />
+						<AsyncCallToAction slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'testimonials') {
 		  		return(
-						<Testimonials slice={slice} key={index} />
+						<AsyncTestimonials slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'logos') {
 					return(
-						<Logos slice={slice} key={index} />
+						<AsyncLogos slice={slice} key={index} />
 					);
 				} else if (slice.slice_type === 'columns') {
 					return(
-						<Columns slice={slice} key={index} />
+						<AsyncColumns slice={slice} key={index} />
 					);
 				} else {
 					return null;
