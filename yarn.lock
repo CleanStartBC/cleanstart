@@ -7347,9 +7347,9 @@ react-app-polyfill@^0.2.0:
     raf "3.4.0"
     whatwg-fetch "3.0.0"
 
-react-css-burger@^0.2.0:
+react-css-burger@CleanStartBC/react-css-burger:
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-css-burger/-/react-css-burger-0.2.0.tgz#6b85f6855c1c0d9af136e7043d5c21f3de565874"
+  resolved "https://codeload.github.com/CleanStartBC/react-css-burger/tar.gz/51f172ba670a193906470ff7f9dd1e822659145c"
 
 react-dev-utils@^7.0.1:
   version "7.0.1"

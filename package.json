@@ -20,7 +20,7 @@
     "prop-types": "^15.7.2",
     "qs": "^6.6.0",
     "react": "^16.7.0",
-    "react-css-burger": "^0.2.0",
+    "react-css-burger": "CleanStartBC/react-css-burger",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-loadable": "^5.5.0",
