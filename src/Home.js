@@ -42,7 +42,6 @@ export default class Home extends Component {
   	if (this.state.doc) {
       const document = this.state.doc.data;
 
-
 			const slices = document.body.map(function(slice, index){
 				if (slice.slice_type === 'slider') {
 		  		return(
@@ -88,9 +87,6 @@ export default class Home extends Component {
 	     </Fragment>
 	    );
   	}
-  	return (
-      <Fragment>
-      </Fragment>
-    )
+  	return <Loading />
   }
 }

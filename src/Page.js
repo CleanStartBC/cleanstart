@@ -3,23 +3,24 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import NotFound from './NotFound';
 
-import Faq from './components/Faq';
-import People from './components/People';
-import ImageBlocks from './components/ImageBlocks';
-import PostIndex from './components/PostIndex';
-import Icon from './components/Icon';
-import Header from './components/Header';
-import Logos from './components/Logos';
-import Pricing from './components/Pricing';
-import CallToAction from './components/CallToAction';
-import Testimonials from './components/Testimonials';
-import BulletList from './components/BulletList';
-import Subnav from './components/Subnav';
-import Contact from './components/Contact';
-import Columns from './components/Columns';
-import ImageIconList from './components/ImageIconList';
-import ImageText from './components/ImageText';
-
+import {
+	AsyncFaq,
+	AsyncPeople,
+	AsyncImageBlocks,
+	AsyncPostIndex,
+	AsyncIcon,
+	AsyncHeader,
+	AsyncLogos,
+	AsyncPricing,
+	AsyncCallToAction,
+	AsyncTestimonials,
+	AsyncBulletList,
+	AsyncSubnav,
+	AsyncContact,
+	AsyncColumns,
+	AsyncImageIconList,
+	AsyncImageText
+} from './components/async';
 
 export default class Page extends Component {
 	constructor(props) {
@@ -62,67 +63,67 @@ export default class Page extends Component {
 			const slices = document.body.map(function(slice, index){
 				if (slice.slice_type === 'subnavigation') {
 					return(
-						<Subnav key={index} slice={slice} />
+						<AsyncSubnav key={index} slice={slice} />
 					);
   			} else if (slice.slice_type === 'bulletlist') {
 		  		return(
-						<BulletList key={index} slice={slice} />
+						<AsyncBulletList key={index} slice={slice} />
 		  		);
   			} else if (slice.slice_type === 'image_icon_list') {
 					return(
-						<ImageIconList key={index} slice={slice}/>
+						<AsyncImageIconList key={index} slice={slice}/>
 					)
   			} else if (slice.slice_type === 'faq') {
 		  		return(
-						<Faq slice={slice} key={index} />
+						<AsyncFaq slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'people') {
 		  		return(
-						<People slice={slice} key={index} />
+						<AsyncPeople slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'image_block') {
 		  		return(
-						<ImageBlocks slice={slice} key={index} />
+						<AsyncImageBlocks slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'call_to_action') {
 		  		return(
-						<CallToAction slice={slice} key={index} />
+						<AsyncCallToAction slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'testimonials') {
 		  		return(
-						<Testimonials slice={slice} key={index} />
+						<AsyncTestimonials slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'logos') {
 					return(
-						<Logos slice={slice} key={index} />
+						<AsyncLogos slice={slice} key={index} />
 					);
 				}  else if (slice.slice_type === 'columns') {
 					return(
-						<Columns slice={slice} key={index} />
+						<AsyncColumns slice={slice} key={index} />
 					);
 				} else if (slice.slice_type === 'image_text') {
 		  		return(
-						<ImageText slice={slice} key={index} />
+						<AsyncImageText slice={slice} key={index} />
 		  		);
   			} else if (slice.slice_type === 'icon') {
 					return(
-						<Icon key={index} slice={slice}/>
+						<AsyncIcon key={index} slice={slice}/>
 					)
   			} else if (slice.slice_type === 'header') {
 					return(
-						<Header key={index} slice={slice} />
+						<AsyncHeader key={index} slice={slice} />
 					);
   			} else if (slice.slice_type === 'pricing') {
 					return(
-						<Pricing key={index} slice={slice} />
+						<AsyncPricing key={index} slice={slice} />
 					);
   			} else if (slice.slice_type === 'posts') {
 					return(
-						<PostIndex key={index} slice={slice}/>
+						<AsyncPostIndex key={index} slice={slice}/>
 					)
   			} else if (slice.slice_type === 'contact') {
 					return(
-						<Contact key={index} slice={slice}/>
+						<AsyncContact key={index} slice={slice}/>
 					)
   			} else {
 					return null;
