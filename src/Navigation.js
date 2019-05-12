@@ -19,9 +19,8 @@ import {
 
 import Burger from 'react-css-burger';
 import NavLink from './components/NavLink';
-import styles from './navigation.module.scss';
 
-import { StyledNavbar,  NavbarBrandImage } from './styles';
+import { StyledNavbar,  NavbarBrandImage, PhoneNumber } from './styles';
 
 
 
@@ -56,7 +55,7 @@ export default class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.label !== "undefined") {
               return(
-                <DropdownItem key={navItemIndex} className={styles.dropdownItemStyle} tag="a" href={Link.url(navItem.link, PrismicConfig.linkResolver)}>{navItem.label}</DropdownItem>
+                <DropdownItem key={navItemIndex} tag="a" href={Link.url(navItem.link, PrismicConfig.linkResolver)}>{navItem.label}</DropdownItem>
               )
 						} else {
 							return null;
@@ -114,10 +113,10 @@ export default class Navigation extends Component {
 							<a className="nav-item nav-link mr-3 text-secondary" href="tel:18552978278">
 								<Media className="align-items-center">
 									<Media left>
-										<FontAwesomeIcon icon="phone" color="#79b241" size="lg" className={styles.iconPhone} />
+										<FontAwesomeIcon icon="phone" color="#B0D35C" size="lg" className="mr-3" />
 									</Media>
 									<Media body>
-										<span className={styles.phoneNumber}>1-855-297-8278</span>
+										<PhoneNumber>1-855-297-8278</PhoneNumber>
 									</Media>
 								</Media>
 							</a>

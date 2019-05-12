@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
-import Loadable from 'react-loadable';
 import Loading from "./Loading";
 
 import {

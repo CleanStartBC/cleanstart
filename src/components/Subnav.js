@@ -10,7 +10,6 @@ import {
 	NavItem,
 } from 'reactstrap';
 
-import styles from './subnavigation.module.scss';
 import NavLink from './NavLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -26,7 +25,7 @@ export default class Subnav extends Component {
       );
     });
     return(
-      <Navbar dark expand="lg" color="primary" className={`${styles.subnavigation}`}>
+      <Navbar dark expand="lg" color="primary">
         <Container fluid>
           <Collapse navbar>
             <Nav className="mr-auto" navbar>

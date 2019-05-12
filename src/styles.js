@@ -190,6 +190,12 @@ const StyledNavbar = styled(Navbar)`
 	padding-bottom: 1rem !important;
 	z-index: 10;
 `
+const PhoneNumber = styled.span`
+  color: rgb(30, 62, 24);
+  font-size: 1.25rem;
+  font-weight: 500;
+  background-image: linear-gradient(180deg, transparent 70%, rgba(176, 211, 92, 0.4) 0);
+`
 
 export {
   StyledParallaxBanner,
@@ -210,5 +216,6 @@ export {
   TestimonialContainer,
   SliderLink,
   TopFooter,
-  BottomFooter
+  BottomFooter,
+  PhoneNumber
 }
