@@ -7349,7 +7349,7 @@ react-app-polyfill@^0.2.0:
 
 react-css-burger@CleanStartBC/react-css-burger:
   version "0.2.0"
-  resolved "https://codeload.github.com/CleanStartBC/react-css-burger/tar.gz/51f172ba670a193906470ff7f9dd1e822659145c"
+  resolved "https://codeload.github.com/CleanStartBC/react-css-burger/tar.gz/31301f392e63f83d5f898d7b840ad384e02a0fcf"
 
 react-dev-utils@^7.0.1:
   version "7.0.1"

@@ -17,7 +17,7 @@ import {
 	DropdownItem,
 	DropdownMenu } from 'reactstrap';
 
-import Burger from 'react-css-burger';
+import Burger from '../node_modules/react-css-burger/dist/';
 import NavLink from './components/NavLink';
 
 import { StyledNavbar,  NavbarBrandImage, PhoneNumber } from './styles';
