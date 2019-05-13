@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
@@ -75,8 +75,10 @@ export default class Footer extends Component {
       )
     }
     return(
-      <Fragment>
-      </Fragment>
+      <footer>
+        <TopFooter></TopFooter>
+        <BottomFooter></BottomFooter>
+      </footer>
     )
   }
 }

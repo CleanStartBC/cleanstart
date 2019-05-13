@@ -3,25 +3,10 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import NotFound from './NotFound';
 import Loading from "./Loading";
+import Navigation from './Navigation';
+import Footer from './Footer';
+import SliceZone from './SliceZone';
 
-import {
-	AsyncFaq,
-	AsyncPeople,
-	AsyncImageBlocks,
-	AsyncPostIndex,
-	AsyncIcon,
-	AsyncHeader,
-	AsyncLogos,
-	AsyncPricing,
-	AsyncCallToAction,
-	AsyncTestimonials,
-	AsyncBulletList,
-	AsyncSubnav,
-	AsyncContact,
-	AsyncColumns,
-	AsyncImageIconList,
-	AsyncImageText
-} from './components/async';
 
 export default class Page extends Component {
 	constructor(props) {
@@ -58,88 +43,18 @@ export default class Page extends Component {
 
   render() {
   	if (this.state.doc) {
-			const { doc } = this.state;
-      const document = doc.data;
-
-			const slices = document.body.map(function(slice, index){
-				if (slice.slice_type === 'subnavigation') {
-					return(
-						<AsyncSubnav key={index} slice={slice} />
-					);
-  			} else if (slice.slice_type === 'bulletlist') {
-		  		return(
-						<AsyncBulletList key={index} slice={slice} />
-		  		);
-  			} else if (slice.slice_type === 'image_icon_list') {
-					return(
-						<AsyncImageIconList key={index} slice={slice}/>
-					)
-  			} else if (slice.slice_type === 'faq') {
-		  		return(
-						<AsyncFaq slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'people') {
-		  		return(
-						<AsyncPeople slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'image_block') {
-		  		return(
-						<AsyncImageBlocks slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'call_to_action') {
-		  		return(
-						<AsyncCallToAction slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'testimonials') {
-		  		return(
-						<AsyncTestimonials slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'logos') {
-					return(
-						<AsyncLogos slice={slice} key={index} />
-					);
-				}  else if (slice.slice_type === 'columns') {
-					return(
-						<AsyncColumns slice={slice} key={index} />
-					);
-				} else if (slice.slice_type === 'image_text') {
-		  		return(
-						<AsyncImageText slice={slice} key={index} />
-		  		);
-  			} else if (slice.slice_type === 'icon') {
-					return(
-						<AsyncIcon key={index} slice={slice}/>
-					)
-  			} else if (slice.slice_type === 'header') {
-					return(
-						<AsyncHeader key={index} slice={slice} />
-					);
-  			} else if (slice.slice_type === 'pricing') {
-					return(
-						<AsyncPricing key={index} slice={slice} />
-					);
-  			} else if (slice.slice_type === 'posts') {
-					return(
-						<AsyncPostIndex key={index} slice={slice}/>
-					)
-  			} else if (slice.slice_type === 'contact') {
-					return(
-						<AsyncContact key={index} slice={slice}/>
-					)
-  			} else {
-					return null;
-				}
-  		});
-
+      const document = this.state.doc.data;
 	    return (
 	      <Fragment>
 					<Helmet>
             <title>{RichText.asText(document.meta_title) + " | CleanStart"}</title>
 						<meta name="description" content={RichText.asText(document.meta_description)} />
           </Helmet>
+					<Navigation />
 					<main>
-						{slices}
+						<SliceZone sliceZone={document.body} />
 					</main>
+					<Footer />
 	     </Fragment>
 	    );
   	}
@@ -150,9 +65,11 @@ export default class Page extends Component {
 						<title>Page Not Found | CleanStart - Metro Vancouver and Vancouver Island Junk Removal</title>
 						<meta name="description" content="CleanStart - Metro Vancouver and Vancouver Island Junk Removal" />
 					</Helmet>
+					<Navigation />
 					<main>
 						<NotFound />
 					</main>
+					<Footer />
 			 </Fragment>
 			)
 		}

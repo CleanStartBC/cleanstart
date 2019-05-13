@@ -152,6 +152,10 @@ p {
   border-right: 0;
 }
 
+.navbar-light .navbar-nav .nav-link.active {
+  color: rgb(30,62,24);
+}
+
 .dropdown-menu {
   top: 73px;
   border-radius: 0px;

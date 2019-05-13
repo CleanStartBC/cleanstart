@@ -128,8 +128,8 @@ export default class Navigation extends Component {
       )
     }
     return(
-      <Fragment>
-			</Fragment>
+			<StyledNavbar light fixed="top" expand="lg">
+			</StyledNavbar>
     )
   }
 }
