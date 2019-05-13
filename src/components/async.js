@@ -45,10 +45,6 @@ const AsyncBulletList = Loadable({
   loader: () => import("./index").then(m => m.BulletList),
   loading: Loading
 });
-const AsyncSubnav = Loadable({
-  loader: () => import("./index").then(m => m.Subnav),
-  loading: Loading
-});
 const AsyncContact = Loadable({
   loader: () => import("./index").then(m => m.Contact),
   loading: Loading
@@ -70,6 +66,26 @@ const AsyncCarousel = Loadable({
   loading: Loading
 });
 
+const AsyncHome = Loadable({
+  loader: () => import("./index").then(m => m.Home),
+  loading: Loading
+});
+
+const AsyncPage = Loadable({
+  loader: () => import("./index").then(m => m.Page),
+  loading: Loading
+});
+
+const AsyncPreview = Loadable({
+  loader: () => import("./index").then(m => m.Preview),
+  loading: Loading
+});
+
+const AsyncNotFound = Loadable({
+  loader: () => import("./index").then(m => m.NotFound),
+  loading: Loading
+});
+
 export {
   AsyncCarousel,
   AsyncFaq,
@@ -83,9 +99,12 @@ export {
   AsyncCallToAction,
   AsyncTestimonials,
   AsyncBulletList,
-  AsyncSubnav,
   AsyncContact,
   AsyncColumns,
   AsyncImageIconList,
-  AsyncImageText
+  AsyncImageText,
+  AsyncHome,
+  AsyncPage,
+  AsyncPreview,
+  AsyncNotFound
 }

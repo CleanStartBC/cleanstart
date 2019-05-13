@@ -2,10 +2,10 @@ import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import Loading from "./Loading";
+import Loading from "../Loading";
 import SliceZone from './SliceZone';
 
 export default class Home extends Component {

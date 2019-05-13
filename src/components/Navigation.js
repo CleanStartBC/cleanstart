@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Prismic from 'prismic-javascript';
 import { Link } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -17,10 +17,10 @@ import {
 	DropdownItem,
 	DropdownMenu } from 'reactstrap';
 
-import Burger from '../node_modules/react-css-burger/dist/';
-import NavLink from './components/NavLink';
+import Burger from '../../node_modules/react-css-burger/dist/';
+import NavLink from './NavLink';
 
-import { StyledNavbar,  NavbarBrandImage, PhoneNumber } from './styles';
+import { StyledNavbar,  NavbarBrandImage, PhoneNumber } from '../styles';
 
 
 

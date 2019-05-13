@@ -9,12 +9,15 @@ import Pricing from './Pricing';
 import CallToAction from './CallToAction';
 import Testimonials from './Testimonials';
 import BulletList from './BulletList';
-import Subnav from './Subnav';
 import Contact from './Contact';
 import Carousel from './Carousel';
 import Columns from './Columns';
 import ImageIconList from './ImageIconList';
 import ImageText from './ImageText';
+import Home from './Home';
+import Page from './Page';
+import Preview from './Preview';
+import NotFound from './NotFound';
 
 export {
   Faq,
@@ -28,10 +31,13 @@ export {
   CallToAction,
   Testimonials,
   BulletList,
-  Subnav,
   Contact,
   Columns,
   ImageIconList,
   ImageText,
-  Carousel
+  Carousel,
+  Home,
+  Page,
+  Preview,
+  NotFound
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import qs from 'qs';
 import Prismic from 'prismic-javascript';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 
 const apiEndpoint = 'http://cleanstart.prismic.io/api/v2';
 

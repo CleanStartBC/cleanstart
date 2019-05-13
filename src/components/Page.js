@@ -1,12 +1,11 @@
 import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
-import NotFound from './NotFound';
-import Loading from "./Loading";
+import Loading from "../Loading";
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SliceZone from './SliceZone';
-
+import { AsyncNotFound } from './async';
 
 export default class Page extends Component {
 	constructor(props) {
@@ -67,7 +66,7 @@ export default class Page extends Component {
 					</Helmet>
 					<Navigation />
 					<main>
-						<NotFound />
+						<AsyncNotFound />
 					</main>
 					<Footer />
 			 </Fragment>

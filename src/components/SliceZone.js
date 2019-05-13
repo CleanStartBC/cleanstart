@@ -16,7 +16,7 @@ import {
   AsyncPostIndex,
 	AsyncPricing,
 	AsyncTestimonials
-} from './components/async';
+} from './async';
 
 export default class SliceZone extends Component {
   render() {
