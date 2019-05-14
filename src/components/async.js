@@ -1,89 +1,89 @@
 import Loadable from "react-loadable";
-import Loading from "../Loading";
+
 
 const AsyncFaq = Loadable({
   loader: () => import("./index").then(m => m.Faq),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncPeople = Loadable({
   loader: () => import("./index").then(m => m.People),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncImageBlocks = Loadable({
   loader: () => import("./index").then(m => m.ImageBlocks),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncPostIndex = Loadable({
   loader: () => import("./index").then(m => m.PostIndex),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncIcon = Loadable({
   loader: () => import("./index").then(m => m.Icon),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncHeader = Loadable({
   loader: () => import("./index").then(m => m.Header),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncLogos = Loadable({
   loader: () => import("./index").then(m => m.Logos),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncPricing = Loadable({
   loader: () => import("./index").then(m => m.Pricing),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncCallToAction = Loadable({
   loader: () => import("./index").then(m => m.CallToAction),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncTestimonials = Loadable({
   loader: () => import("./index").then(m => m.Testimonials),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncBulletList = Loadable({
   loader: () => import("./index").then(m => m.BulletList),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncContact = Loadable({
   loader: () => import("./index").then(m => m.Contact),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncColumns = Loadable({
   loader: () => import("./index").then(m => m.Columns),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncImageIconList = Loadable({
   loader: () => import("./index").then(m => m.ImageIconList),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncImageText = Loadable({
   loader: () => import("./index").then(m => m.ImageText),
-  loading: Loading
+  loading: () => null,
 });
 const AsyncCarousel = Loadable({
   loader: () => import("./index").then(m => m.Carousel),
-  loading: Loading
+  loading: () => null,
 });
 
 const AsyncHome = Loadable({
   loader: () => import("./index").then(m => m.Home),
-  loading: Loading
+  loading: () => null,
 });
 
 const AsyncPage = Loadable({
   loader: () => import("./index").then(m => m.Page),
-  loading: Loading
+  loading: () => null,
 });
 
 const AsyncPreview = Loadable({
   loader: () => import("./index").then(m => m.Preview),
-  loading: Loading
+  loading: () => null,
 });
 
 const AsyncNotFound = Loadable({
   loader: () => import("./index").then(m => m.NotFound),
-  loading: Loading
+  loading: () => null,
 });
 
 export {

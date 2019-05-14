@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Media, Navbar, Collapse, DropdownMenu, DropdownToggle } from 'reactstrap';
@@ -237,12 +237,57 @@ const StyledDropdownMenu = styled(DropdownMenu)`
   }
 `
 
-
 const PhoneNumber = styled.span`
   color: rgb(30, 62, 24);
   font-size: 1.25rem;
   font-weight: 500;
   background-image: linear-gradient(180deg, transparent 70%, rgba(176, 211, 92, 0.4) 0);
+`
+
+const Ripple = keyframes`
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+`
+
+const RippleLoader = styled.div`
+  display: inline-block;
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: ${Ripple} 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+`
+const LoaderBg = styled.div`
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(121, 178, 65, 1);
 `
 
 export {
@@ -270,4 +315,6 @@ export {
   TopFooter,
   BottomFooter,
   PhoneNumber,
+  RippleLoader,
+  LoaderBg,
 }
