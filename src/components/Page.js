@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
+import Loading from "../Loading";
 import Navigation from './Navigation';
 import Footer from './Footer';
 import SliceZone from './SliceZone';
@@ -72,7 +73,7 @@ export default class Page extends Component {
 			)
 		}
   	return(
-			null
+			<Loading />
 		)
   }
 }
