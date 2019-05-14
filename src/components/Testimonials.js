@@ -68,7 +68,6 @@ const Testimonials = props => (
     <Container fluid>
       { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className="mb-5" >{RichText.render(props.slice.primary.body1)}</StructuredText>) }
     <TestimonialsContent items={props.slice.items} />
-
     </Container>
   </StyledParallaxBanner>
 )

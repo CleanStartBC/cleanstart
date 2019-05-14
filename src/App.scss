@@ -133,9 +133,9 @@ p {
   .price, .pricing-tier {
     color: $green;
   }
-}
-.pricing-highlight {
-  border: 1px solid $green !important;
+  &.true {
+    border: 1px solid $green !important;
+  }
 }
 
 
