@@ -1,73 +1,70 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
 import { StyledSection, StructuredText, ResponsiveImage } from '../styles';
 
-export default class ImageText extends Component {
-  render(){
-    const { slice } = this.props;
-    const items = slice.items.map(function(item, index){
 
-
-
-      if (item.position === 'left') {
-        return(
-
-              <Row className={`justify-content-center ${item.alignment}`} key={index}>
-                <Col>
-                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
-                </Col>
-                <Col lg={item.width} className="pl-lg-5">
-                  <StructuredText largetext>
-                    {RichText.render(item.body1, PrismicConfig.linkResolver)}
-                  </StructuredText>
-                </Col>
-              </Row>
-
-        )
-      } else {
-        return(
-
-              <Row className={`justify-content-center ${item.alignment}`} key={index}>
-                <Col lg={item.width}>
-                  <StructuredText largetext>
-                    {RichText.render(item.body1, PrismicConfig.linkResolver)}
-                  </StructuredText>
-                </Col>
-                <Col className="pl-lg-5">
-                  <ResponsiveImage src={item.image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
-                </Col>
-              </Row>
-
-        )
+const ImageRow = props => (
+  <Fragment>
+  {props.items.map(({ position, alignment, image, width, body1 }, index) =>
+    <Row className={`justify-content-center ${alignment}`} key={index}>
+      {position === 'left'
+        ?
+        <Fragment>
+          <Col>
+            <ResponsiveImage src={image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
+          </Col>
+          <Col lg={width} className="pl-lg-5">
+            <StructuredText largetext>
+              {RichText.render(body1, PrismicConfig.linkResolver)}
+            </StructuredText>
+          </Col>
+        </Fragment>
+        :
+        <Fragment>
+          <Col lg={width}>
+            <StructuredText largetext>
+              {RichText.render(body1, PrismicConfig.linkResolver)}
+            </StructuredText>
+          </Col>
+          <Col className="pl-lg-5">
+            <ResponsiveImage src={image.url} alt="" className="mb-4 mb-sm-4 mb-md-0" />
+          </Col>
+        </Fragment>
       }
-    });
-    return(
-      <StyledSection className={`${slice.primary.color}`}
-        >
-        <Container fluid>
-          <Row className={`justify-content-center`}>
-          {
-            (slice.primary.position === 'top')
-            ?
-            <Fragment>
-              <Col lg="12">
-                { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText >{RichText.render(slice.primary.body1)}</StructuredText>) }
-                {items}
-              </Col>
-            </Fragment>
-            :
-            <Fragment>
-              { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<Col lg={{ size: 3 }}><StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left" >{RichText.render(slice.primary.body1)}</StructuredText></Col>) }
-              <Col lg={{ size: 9 }}>
-                {items}
-              </Col>
-            </Fragment>
-          }
-          </Row>
-        </Container>
-      </StyledSection>
-    )
-  }
+    </Row>
+  )}
+  </Fragment>
+)
+
+const ImageText = props => {
+  return(
+    <StyledSection className={`${props.slice.primary.color}`}
+      >
+      <Container fluid>
+        <Row className={`justify-content-center`}>
+        {
+          (props.slice.primary.position === 'top')
+          ?
+          <Fragment>
+            <Col lg="12">
+              { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText >{RichText.render(props.slice.primary.body1)}</StructuredText>) }
+              <ImageRow items={props.slice.items} />
+            </Col>
+          </Fragment>
+          :
+          <Fragment>
+            { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<Col lg={{ size: 3 }}><StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left" >{RichText.render(props.slice.primary.body1)}</StructuredText></Col>) }
+            <Col lg={{ size: 9 }}>
+              <ImageRow items={props.slice.items} />
+            </Col>
+          </Fragment>
+        }
+        </Row>
+      </Container>
+    </StyledSection>
+  )
 }
+
+export default ImageText

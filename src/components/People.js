@@ -4,9 +4,6 @@ import { Container, Row, Col } from 'reactstrap';
 import { StructuredText, StyledSection } from '../styles';
 import Person from './Person';
 
-
-
-
 const People = props => (
   <StyledSection pbt className={`${props.slice.primary.color}`}>
     <Container fluid>

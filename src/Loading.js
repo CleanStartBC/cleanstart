@@ -1,14 +1,4 @@
 import React from 'react'
-// import { Loader } from './styles'
-//
-// export default class Loading extends Component {
-//   render(){
-//     return(
-//       <Loader />
-//     )
-//   }
-// }
-
 
 function Loading(props) {
   if (props.error) {

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Media, Navbar } from 'reactstrap';
-import {  } from 'reactstrap';
+import { Media, Navbar, Collapse, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 const StyledParallaxBanner = styled(ParallaxBanner)`
   height: auto !important;
@@ -158,38 +157,87 @@ const BottomFooter = styled.div`
   background: #447638;
   color: #fff;
 `
-const Loader = styled.div`
-  margin-top: calc(50vh - 126px);
-  margin-bottom: calc(50vh - 126px);
-  margin-left: auto;
-  margin-right: auto;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #005891;
-  border-right: 16px solid #D12331;
-  border-bottom: 16px solid #D9D458;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  @-webkit-keyframes spin {
-   0% { -webkit-transform: rotate(0deg); }
-   100% { -webkit-transform: rotate(360deg); }
-  }
-  @keyframes spin {
-   0% { transform: rotate(0deg); }
-   100% { transform: rotate(360deg); }
-  }
-`
 
 const StyledNavbar = styled(Navbar)`
 	font-family: 'Graphik';
 	border-top: 4px solid rgb(176, 211, 92);
 	box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
-	padding-top: 1rem !important;
-	padding-bottom: 1rem !important;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+  background: #fff;
 	z-index: 10;
 `
+const NavbarToggler = styled.div`
+  border: 0;
+  padding: 0;
+`
+const NavbarCollapse = styled(Collapse)`
+  @media (max-width: 575.98px) {
+    margin-top: 2rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    .btn-lg {
+      display: block; width: calc(100% - 2rem);
+      margin: 1.5rem auto 0;
+    }
+  }
+`
+const StyledNavLink = styled.a`
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  letter-spacing: 0.02em;
+  color: rgb(68, 118, 56);
+  &.active {
+    color: rgb(30, 62, 24);
+  }
+  @media (max-width: 575.98px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+`
+const StyledToggle = styled(DropdownToggle)`
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  letter-spacing: 0.02em;
+  color: rgb(68, 118, 56);
+  &.active, &:focus {
+    color: rgb(30, 62, 24);
+  }
+  @media (max-width: 575.98px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+`
+
+
+const StyledDropdownMenu = styled(DropdownMenu)`
+  top: 73px;
+  border-radius: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;
+  .dropdown-item {
+    padding: 0.75rem 1rem;
+    letter-spacing: 0.02em;
+    &:hover, &:focus {
+      background: rgb(121, 178, 65);
+      color: white;
+    }
+  }
+  @media (max-width: 575.98px) {
+    box-shadow: none;
+    .dropdown-item {
+      padding-left: 2rem;
+    }
+  }
+`
+
+
 const PhoneNumber = styled.span`
   color: rgb(30, 62, 24);
   font-size: 1.25rem;
@@ -206,15 +254,19 @@ export {
   MenuLink,
   StyledSection,
   StyledNavbar,
+  NavbarToggler,
+  NavbarCollapse,
+  StyledNavLink,
+  StyledDropdownMenu,
   MapWrapper,
   FaCircle,
   Feature,
-  Loader,
   SliderTitleContainer,
   QuestionAnswerContainer,
   NavbarBrandImage,
   TestimonialContainer,
   SliderLink,
+  StyledToggle,
   TopFooter,
   BottomFooter,
   PhoneNumber,

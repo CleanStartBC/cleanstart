@@ -72,6 +72,9 @@ export default class Page extends Component {
 			 </Fragment>
 			)
 		}
-  	return <Loading />
+  	return(
+
+					<Loading />
+		)
   }
 }

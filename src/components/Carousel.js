@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import Slider from 'react-slick';
 import { Link, RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
@@ -8,8 +8,6 @@ import { SliderTitleContainer, StyledBanner, SliderLink } from '../styles';
 import "./Carousel.scss";
 import MagicSliderDots from 'react-magic-slider-dots';
 import 'react-magic-slider-dots/dist/magic-dots.css';
-
-
 
 function NextArrow(props) {
   const { className, onClick } = props;
@@ -33,55 +31,55 @@ function PrevArrow(props) {
   );
 }
 
-export default class Carousel extends Component {
-  render(){
-    const settings = {
-      dots: true,
-      infinite: true,
-			fade: true,
-      speed: 500,
-      slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 6000,
-			nextArrow: <NextArrow />,
-			prevArrow: <PrevArrow />,
-			appendDots: (dots) => {
-				return <MagicSliderDots dots={dots} numDotsToShow={3} dotWidth={30} className="carousel-dots" />
-			}
-    };
-    const { slice } = this.props;
-    const items =  slice.items.map(function(item, index){
-      return(
-				<header key={index}>
-					<StyledBanner className={`carousel-section ${item.color}`}
-						layers={[
-											{
-													image: item.image.url,
-													amount: 0.25,
-											},
-										]}
-						>
-						<Container fluid>
-							<Row>
-								<Col md={item.span} className={ (item.alignment === 'center') && 'mx-auto' }>
-									<SliderLink href={Link.url(item.link, PrismicConfig.linkResolver)}>
-										<SliderTitleContainer>
-											{RichText.render(item.title1)}
-											{RichText.render(item.subtext)}
-										</SliderTitleContainer>
-									</SliderLink>
-								</Col>
-							</Row>
-						</Container>
-					</StyledBanner>
-				</header>
-      )
-    });
-    return(
-      <Slider {...settings}>
-        {items}
-      </Slider>
-    )
+const settings = {
+  dots: true,
+  infinite: true,
+  fade: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 6000,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  appendDots: (dots) => {
+    return <MagicSliderDots dots={dots} numDotsToShow={3} dotWidth={30} className="carousel-dots" />
   }
-}
+};
+
+const Slides = props => (
+  <Slider {...settings}>
+    {props.items.map(({ alignment, title1, subtext, image, span, link, color }, index) =>
+      <header key={index}>
+        <StyledBanner className={`carousel-section ${color}`}
+          layers={[
+                    {
+                        image: image.url,
+                        amount: 0.25,
+                    },
+                  ]}
+          >
+          <Container fluid>
+            <Row>
+              <Col md={span} className={ (alignment === 'center') && 'mx-auto' }>
+                <SliderLink href={Link.url(link, PrismicConfig.linkResolver)}>
+                  <SliderTitleContainer>
+                    {RichText.render(title1)}
+                    {RichText.render(subtext)}
+                  </SliderTitleContainer>
+                </SliderLink>
+              </Col>
+            </Row>
+          </Container>
+        </StyledBanner>
+      </header>
+    )}
+  </Slider>
+)
+
+const Carousel = props => (
+  <Fragment>
+    <Slides items={props.slice.items} />
+  </Fragment>
+)
+export default Carousel

@@ -3,26 +3,25 @@ import Prismic from 'prismic-javascript';
 import { Link } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Burger from '../../node_modules/react-css-burger/dist/';
+import NavLink from './NavLink';
 import {
 	Button,
 	Media,
 	Container,
-	Collapse,
 	NavbarBrand,
 	Nav,
 	NavItem,
 	UncontrolledDropdown,
-	DropdownToggle,
-	DropdownItem,
-	DropdownMenu } from 'reactstrap';
-
-import Burger from '../../node_modules/react-css-burger/dist/';
-import NavLink from './NavLink';
-
-import { StyledNavbar,  NavbarBrandImage, PhoneNumber } from '../styles';
-
-
+	DropdownItem } from 'reactstrap';
+import {
+	StyledNavbar,
+	NavbarBrandImage,
+	NavbarCollapse,
+	NavbarToggler,
+	StyledDropdownMenu,
+	PhoneNumber,
+	StyledToggle } from '../styles';
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -68,12 +67,12 @@ export default class Navigation extends Component {
 							(slice.items.length > 1)
 							?
               <UncontrolledDropdown nav inNavbar >
-								<DropdownToggle nav caret>
+								<StyledToggle nav caret>
 									{slice.primary.label}
-								</DropdownToggle>
-								<DropdownMenu right>
+								</StyledToggle>
+								<StyledDropdownMenu right>
 									{navItems}
-								</DropdownMenu>
+								</StyledDropdownMenu>
 							</UncontrolledDropdown>
 							:
 							<NavItem>
@@ -87,7 +86,7 @@ export default class Navigation extends Component {
   			}
   		});
       return(
-				<StyledNavbar light fixed="top" expand="lg">
+				<StyledNavbar fixed="top" expand="lg">
 					<Container fluid>
 		        <NavbarBrand href="/">
 							<NavbarBrandImage
@@ -95,7 +94,7 @@ export default class Navigation extends Component {
 								alt={document.image.alt}
 							/>
 						</NavbarBrand>
-						<div className="navbar-toggler">
+						<NavbarToggler className="navbar-toggler">
 							<Burger
 				        onClick={this.toggle}
 				        active={this.state.isOpen}
@@ -105,30 +104,32 @@ export default class Navigation extends Component {
 								scale={1}
 								marginTop='0.625rem'
 				      />
-						</div>
-		        <Collapse isOpen={this.state.isOpen} navbar>
-		          <Nav className="mr-auto" navbar>
+						</NavbarToggler>
+		        <NavbarCollapse isOpen={this.state.isOpen} navbar>
+		          <Nav navbar className="mr-auto">
 								{navContent}
 		          </Nav>
-							<a className="nav-item nav-link mr-3 text-secondary" href="tel:18552978278">
-								<Media className="align-items-center">
-									<Media left>
-										<FontAwesomeIcon icon="phone" color="#B0D35C" size="lg" className="mr-3" />
+							<Nav navbar>
+								<a className="nav-item nav-link mx-3 text-secondary" href="tel:18552978278">
+									<Media className="align-items-center">
+										<Media left>
+											<FontAwesomeIcon icon="phone" color="#B0D35C" size="lg" className="mr-3" />
+										</Media>
+										<Media body>
+											<PhoneNumber>1-855-297-8278</PhoneNumber>
+										</Media>
 									</Media>
-									<Media body>
-										<PhoneNumber>1-855-297-8278</PhoneNumber>
-									</Media>
-								</Media>
-							</a>
+								</a>
+							</Nav>
 							<Button color="primary" size="lg">Book Now</Button>
-		        </Collapse>
+		        </NavbarCollapse>
 
 					</Container>
 		    </StyledNavbar>
       )
     }
     return(
-			<StyledNavbar light fixed="top" expand="lg">
+			<StyledNavbar fixed="top" expand="lg">
 			</StyledNavbar>
     )
   }

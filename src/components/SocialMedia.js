@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col } from 'reactstrap';
 import { MenuTitle, MenuLink } from '../styles'
 
-
 const MenuItems = props => (
   <Fragment>
     {props.items.map(({ link, label, font_awesome }) =>

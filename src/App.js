@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-// import Helmet from 'react-helmet';
 import 'fontawesome';
-// import { Css } from './styles';
 import './App.scss';
 
 import { AsyncHome, AsyncPage, AsyncPreview } from './components/async';

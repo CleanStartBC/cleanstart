@@ -340,3 +340,7 @@
 .slick-next {
   right: 1rem !important;
 }
+
+.magic-dots.slick-dots li.slick-active button:before {
+  color: rgb(121, 178, 65);
+}
