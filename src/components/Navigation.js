@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Prismic from 'prismic-javascript';
 import { Link } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,15 +36,30 @@ export default class Navigation extends Component {
 			isOpen: !this.state.isOpen
 		});
 	}
-  componentWillMount() {
-    Prismic.api(PrismicConfig.apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'navigation')).then(response => {
-        if (response) {
-          this.setState({ doc: response.results[0] });
+	componentWillMount() {
+    this.fetchPage(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.fetchPage(props);
+  }
+
+	fetchPage(props) {
+    if (props.prismicCtx) {
+
+			return props.prismicCtx.api.getSingle('navigation', (err, doc) => {
+        if (doc) {
+          // We put the retrieved content in the state as a doc variable
+          this.setState({ doc });
+        } else {
+          // We changed the state to display error not found if no matched doc
+          this.setState({ notFound: !doc });
         }
       });
-    });
+    }
+    return null;
   }
+
   render() {
     if (this.state.doc) {
       const document = this.state.doc.data;

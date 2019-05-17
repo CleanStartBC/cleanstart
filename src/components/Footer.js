@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Prismic from 'prismic-javascript';
-import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
 import Menu from './Menu';
 import SocialMedia from './SocialMedia';
@@ -15,13 +13,27 @@ export default class Footer extends Component {
     }
   }
   componentWillMount() {
-    Prismic.api(PrismicConfig.apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'footer')).then(response => {
-        if (response) {
-          this.setState({ doc: response.results[0] });
+    this.fetchPage(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.fetchPage(props);
+  }
+
+	fetchPage(props) {
+    if (props.prismicCtx) {
+
+			return props.prismicCtx.api.getSingle('footer', (err, doc) => {
+        if (doc) {
+          // We put the retrieved content in the state as a doc variable
+          this.setState({ doc });
+        } else {
+          // We changed the state to display error not found if no matched doc
+          this.setState({ notFound: !doc });
         }
       });
-    });
+    }
+    return null;
   }
   render(){
     if (this.state.doc) {

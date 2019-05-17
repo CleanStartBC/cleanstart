@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Prismic from 'prismic-javascript';
-import PrismicConfig from '../prismic-configuration';
 import SliceZone from './SliceZone';
 import Meta from '../meta';
 import Layout from '../Layout';
@@ -14,16 +12,30 @@ export default class Home extends Component {
 		}
 	}
 
-  componentWillMount() {
-    const apiEndpoint = PrismicConfig.apiEndpoint;
-	  Prismic.api(apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'homepage')).then(response => {
-        if (response) {
-          this.setState({ doc: response.results[0] });
+	componentWillMount() {
+    this.fetchPage(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.fetchPage(props);
+  }
+
+	fetchPage(props) {
+    if (props.prismicCtx) {
+
+			return props.prismicCtx.api.getSingle('homepage', (err, doc) => {
+        if (doc) {
+          // We put the retrieved content in the state as a doc variable
+          this.setState({ doc });
+        } else {
+          // We changed the state to display error not found if no matched doc
+          this.setState({ notFound: !doc });
         }
       });
-    });
+    }
+    return null;
   }
+
 
 	renderHome() {
 		if (this.state.doc) {
@@ -40,6 +52,6 @@ export default class Home extends Component {
 	}
 
   render() {
-  	return <Layout>{this.renderHome()}</Layout>
+  	return <Layout prismicCtx={this.props.prismicCtx}>{this.renderHome()}</Layout>
   }
 }

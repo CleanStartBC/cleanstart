@@ -9,7 +9,7 @@ import { AsyncHome, AsyncPage, AsyncPreview, AsyncPost } from './components/asyn
 const App = (props) => (
   <Router>
     <Switch>
-      <Route exact path='/' component={AsyncHome}/>
+      <Route exact path='/' render={() => <AsyncHome prismicCtx={props.prismicCtx}/>}/>
       <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={props.prismicCtx} />} />
       <Route exact path="/blog/:uid" render={routeProps => <AsyncPost {...routeProps} prismicCtx={props.prismicCtx} />} />
       {/* <Layout exact path='/' component={AsyncHome}/>

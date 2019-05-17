@@ -14,11 +14,11 @@ import Footer from './components/Footer';
 //   }/>
 // )
 
-const Layout = ({ children }) => (
+const Layout = ({ prismicCtx, children }) => (
     <>
-      <Navigation />
+      <Navigation prismicCtx={prismicCtx}/>
         {children}
-      <Footer />
+      <Footer prismicCtx={prismicCtx} />
     </>
 )
 export default Layout
