@@ -19,6 +19,8 @@ import Page from './Page';
 import Post from './Post';
 import Preview from './Preview';
 import NotFound from './NotFound';
+import Menu from './Menu';
+import SocialMedia from './SocialMedia';
 
 export {
   Faq,
@@ -41,5 +43,7 @@ export {
   Page,
   Preview,
   Post,
-  NotFound
+  NotFound,
+  Menu,
+  SocialMedia
 }

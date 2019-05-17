@@ -5,7 +5,7 @@ const NavLink = props => {
   const pageURI = window.location.pathname+window.location.search
   const aClassName = (props.path === pageURI) ? "nav-link active" : "nav-link"
   return(
-    <StyledNavLink href={props.path} className={aClassName}>
+    <StyledNavLink to={props.path} className={aClassName}>
       {props.name}
     </StyledNavLink>
   )

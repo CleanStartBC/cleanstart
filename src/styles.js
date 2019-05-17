@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Media, Navbar, Collapse, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Link as RouterLink } from 'react-router-dom';
 
 const StyledParallaxBanner = styled(ParallaxBanner)`
   height: auto !important;
@@ -182,7 +183,7 @@ const NavbarCollapse = styled(Collapse)`
     }
   }
 `
-const StyledNavLink = styled.a`
+const StyledNavLink = styled(RouterLink)`
   font-weight: 500;
   text-transform: uppercase;
   padding-left: 1rem !important;
@@ -197,6 +198,16 @@ const StyledNavLink = styled.a`
     padding-bottom: 1rem;
   }
 `
+const StyledNavbarBrand = styled(RouterLink)`
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+`
+
 const StyledToggle = styled(DropdownToggle)`
   font-weight: 500;
   text-transform: uppercase;
@@ -301,6 +312,7 @@ export {
   StyledNavbar,
   NavbarToggler,
   NavbarCollapse,
+  StyledNavbarBrand,
   StyledNavLink,
   StyledDropdownMenu,
   MapWrapper,

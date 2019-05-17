@@ -15,7 +15,9 @@ import {
   AsyncPeople,
   AsyncPostIndex,
 	AsyncPricing,
-	AsyncTestimonials
+	AsyncTestimonials,
+  AsyncMenu,
+  AsyncSocialMedia
 } from './async';
 
 export default class SliceZone extends Component {
@@ -54,6 +56,10 @@ export default class SliceZone extends Component {
           return <AsyncCarousel slice={slice} key={`slice-` + index} />
         case("testimonials"):
           return <AsyncTestimonials slice={slice} key={`slice-` + index} />
+        case("menu"):
+          return <AsyncMenu slice={slice} key={`slice-` + index} />
+          case("social_media"):
+            return <AsyncSocialMedia slice={slice} key={`slice-` + index} />
         default:
           return null;
       }

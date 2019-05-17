@@ -4,20 +4,23 @@ import PrismicConfig from '../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Burger from '../../node_modules/react-css-burger/dist/';
 import NavLink from './NavLink';
+
 import {
 	Button,
 	Media,
 	Container,
-	NavbarBrand,
+	// NavbarBrand,
 	Nav,
 	NavItem,
-	UncontrolledDropdown,
-	DropdownItem } from 'reactstrap';
+	// DropdownItem,
+	UncontrolledDropdown } from 'reactstrap';
+import { Link as RouterLink } from 'react-router-dom';
 import {
 	StyledNavbar,
 	NavbarBrandImage,
 	NavbarCollapse,
 	NavbarToggler,
+	StyledNavbarBrand,
 	StyledDropdownMenu,
 	PhoneNumber,
 	StyledToggle } from '../styles';
@@ -68,7 +71,7 @@ export default class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.label !== "undefined") {
               return(
-                <DropdownItem key={navItemIndex} tag="a" href={Link.url(navItem.link, PrismicConfig.linkResolver)}>{navItem.label}</DropdownItem>
+                <RouterLink key={navItemIndex} className="dropdown-item" to={`${Link.url(navItem.link, PrismicConfig.linkResolver)}`}>{navItem.label}</RouterLink>
               )
 						} else {
 							return null;
@@ -90,7 +93,7 @@ export default class Navigation extends Component {
 							</UncontrolledDropdown>
 							:
 							<NavItem>
-	              <NavLink name={slice.primary.label} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  />
+	              <NavLink name={slice.primary.label} path={`${Link.url(slice.primary.link, PrismicConfig.linkResolver)}`}  />
 	            </NavItem>
 						}
 						</Fragment>
@@ -102,12 +105,12 @@ export default class Navigation extends Component {
       return(
 				<StyledNavbar fixed="top" expand="lg">
 					<Container fluid>
-		        <NavbarBrand href="/">
+		        <StyledNavbarBrand to="/">
 							<NavbarBrandImage
 								src={document.image.url}
 								alt={document.image.alt}
 							/>
-						</NavbarBrand>
+						</StyledNavbarBrand>
 						<NavbarToggler className="navbar-toggler">
 							<Burger
 				        onClick={this.toggle}

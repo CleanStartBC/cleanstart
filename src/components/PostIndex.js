@@ -38,7 +38,7 @@ export default class PostIndex extends Component {
               <h4>{RichText.asText(post.data.title)}</h4>
               {RichText.render(post.data.excerpt)}
               <div className="d-flex justify-content-between align-items-end">
-                <a href={`/blog/${post.uid}`} className="mt-3 d-inline-block">Read more.</a>
+                <a href={PrismicConfig.linkResolver(post)} className="mt-3 d-inline-block">Read more.</a>
                 <small className="text-muted">{pubDate.toLocaleDateString("en-US", options)}</small>
               </div>
             </StructuredText>

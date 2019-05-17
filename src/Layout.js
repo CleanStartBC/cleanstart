@@ -7,9 +7,9 @@ import Footer from './components/Footer';
 // const Layout = ({ component: Component, prismicCtx, ...rest}) => (
 //   <Route {...rest} render={routeProps =>
 //     <>
-//       <Navigation />
+//       <Navigation prismicCtx={prismicCtx} />
 //         <Component {...routeProps} prismicCtx={prismicCtx}  />
-//       <Footer />
+//       <Footer prismicCtx={prismicCtx} />
 //     </>
 //   }/>
 // )

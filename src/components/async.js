@@ -91,6 +91,16 @@ const AsyncNotFound = Loadable({
   loading: () => null,
 });
 
+const AsyncMenu = Loadable({
+  loader: () => import("./index").then(m => m.Menu),
+  loading: () => null,
+});
+
+const AsyncSocialMedia = Loadable({
+  loader: () => import("./index").then(m => m.SocialMedia),
+  loading: () => null,
+});
+
 export {
   AsyncCarousel,
   AsyncFaq,
@@ -112,5 +122,7 @@ export {
   AsyncPage,
   AsyncPreview,
   AsyncNotFound,
-  AsyncPost
+  AsyncPost,
+  AsyncMenu,
+  AsyncSocialMedia
 }
