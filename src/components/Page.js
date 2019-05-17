@@ -61,10 +61,6 @@ export default class Page extends Component {
 	}
 
   render() {
-  	return(
-			<Layout>
-				{this.renderPage()}
-			</Layout>
-		)
+		return <Layout prismicCtx={this.props.prismicCtx}>{this.renderPage()}</Layout>
   }
 }
