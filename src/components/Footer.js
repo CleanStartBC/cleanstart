@@ -15,9 +15,7 @@ export default class Footer extends Component {
     }
   }
   componentWillMount() {
-    const accessToken = PrismicConfig.accessToken;
-
-    Prismic.api(PrismicConfig.apiEndpoint, { accessToken }).then(api => {
+    Prismic.api(PrismicConfig.apiEndpoint).then(api => {
       api.query(Prismic.Predicates.at('document.type', 'footer')).then(response => {
         if (response) {
           this.setState({ doc: response.results[0] });
