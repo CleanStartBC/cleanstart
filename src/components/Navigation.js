@@ -38,7 +38,9 @@ export default class Navigation extends Component {
 		});
 	}
   componentWillMount() {
-    Prismic.api(PrismicConfig.apiEndpoint).then(api => {
+		const accessToken = PrismicConfig.accessToken;
+
+    Prismic.api(PrismicConfig.apiEndpoint, { accessToken }).then(api => {
       api.query(Prismic.Predicates.at('document.type', 'navigation')).then(response => {
         if (response) {
           this.setState({ doc: response.results[0] });

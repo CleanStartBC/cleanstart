@@ -16,7 +16,8 @@ export default class Home extends Component {
 
   componentWillMount() {
     const apiEndpoint = PrismicConfig.apiEndpoint;
-	  Prismic.api(apiEndpoint).then(api => {
+		const accessToken = PrismicConfig.accessToken;
+	  Prismic.api(apiEndpoint, { accessToken }).then(api => {
       api.query(Prismic.Predicates.at('document.type', 'homepage')).then(response => {
         if (response) {
           this.setState({ doc: response.results[0] });

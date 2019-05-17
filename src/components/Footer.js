@@ -15,7 +15,9 @@ export default class Footer extends Component {
     }
   }
   componentWillMount() {
-    Prismic.api(PrismicConfig.apiEndpoint).then(api => {
+    const accessToken = PrismicConfig.accessToken;
+
+    Prismic.api(PrismicConfig.apiEndpoint, { accessToken }).then(api => {
       api.query(Prismic.Predicates.at('document.type', 'footer')).then(response => {
         if (response) {
           this.setState({ doc: response.results[0] });
@@ -76,8 +78,8 @@ export default class Footer extends Component {
     }
     return(
       <footer>
-        <TopFooter></TopFooter>
-        <BottomFooter></BottomFooter>
+        <TopFooter />
+        <BottomFooter />
       </footer>
     )
   }
