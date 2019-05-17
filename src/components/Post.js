@@ -4,7 +4,7 @@ import { AsyncNotFound } from './async';
 import Meta from '../meta';
 import Layout from '../Layout';
 
-export default class Page extends Component {
+export default class Post extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -24,7 +24,7 @@ export default class Page extends Component {
 	fetchPage(props) {
     if (props.prismicCtx) {
       // We are using the function to get a document by its uid
-      return props.prismicCtx.api.getByUID('page', props.match.params.uid, {}, (err, doc) => {
+      return props.prismicCtx.api.getByUID('post', props.match.params.uid, {}, (err, doc) => {
         if (doc) {
           // We put the retrieved content in the state as a doc variable
           this.setState({ doc });

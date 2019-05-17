@@ -14,7 +14,7 @@ const Header = props => (
     >
       <Container fluid>
         <Row className="align-items-center">
-          <Col lg={props.slice.primary.span} className={ (props.slice.primary.alignment === 'center') && 'mx-auto' }>
+          <Col lg={props.slice.primary.span} className={` ${(props.slice.primary.alignment === 'center') && 'mx-auto'} `}>
             {RichText.render(props.slice.primary.title1)}
             {RichText.render(props.slice.primary.subtext)}
           </Col>

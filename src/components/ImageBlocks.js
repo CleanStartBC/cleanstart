@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';

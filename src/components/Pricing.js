@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import {  RichText } from 'prismic-reactjs';
 import { Container, Card, CardHeader, Button, CardDeck, CardBody } from 'reactstrap';
 import { StyledParallaxBanner, StructuredText } from '../styles';

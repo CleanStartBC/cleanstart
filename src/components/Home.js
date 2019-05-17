@@ -1,12 +1,9 @@
-import React, { Fragment, Component } from 'react';
-import Helmet from 'react-helmet';
-import { RichText } from 'prismic-reactjs';
+import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from '../prismic-configuration';
-import Navigation from './Navigation';
-import Footer from './Footer';
-import Loading from "../Loading";
 import SliceZone from './SliceZone';
+import Meta from '../meta';
+import Layout from '../Layout';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -28,23 +25,21 @@ export default class Home extends Component {
     });
   }
 
-  render() {
-  	if (this.state.doc) {
-      const document = this.state.doc.data;
-	    return (
-	      <Fragment>
-					<Helmet>
-            <title>{RichText.asText(document.meta_title) + " | CleanStart"}</title>
-						<meta name="description" content="CleanStart - Metro Vancouver and Vancouver Island Junk Removal" />
-          </Helmet>
-					<Navigation />
+	renderHome() {
+		if (this.state.doc) {
+			const document = this.state.doc.data;
+			return (
+				<>
+					{Meta(document)}
 					<main>
 						<SliceZone sliceZone={document.body} />
 					</main>
-					<Footer />
-	     </Fragment>
-	    );
-  	}
-  	return <Loading />
+			 </>
+			);
+		}
+	}
+
+  render() {
+  	return <Layout>{this.renderHome()}</Layout>
   }
 }

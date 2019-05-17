@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col, Media } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,11 +8,11 @@ import { Feature, FaCircle, StyledSection, StructuredText, ResponsiveImage } fro
 const ImageRow = props => (
   <Fragment>
     {props.items.map(({ width, alignment, font_awesome, body1 }, index) =>
-      <Fragment>
+      <Fragment key={index}>
         {props.circle === 'true'
         ?
         <Fragment>
-          <Col lg={width} key={index}>
+          <Col lg={width}>
             <Feature className={alignment}>
               <Media left>
                 <span className={`fa-layers fa-fw mt-3 mr-5`}>
@@ -30,7 +30,7 @@ const ImageRow = props => (
         </Fragment>
         :
         <Fragment>
-          <Col lg={width} key={index} >
+          <Col lg={width} >
             <Feature>
               <Media left>
                 <FontAwesomeIcon icon={['fal', font_awesome]} size="2x" fixedWidth className="fontIcon mr-3"/>

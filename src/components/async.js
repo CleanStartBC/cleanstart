@@ -76,6 +76,11 @@ const AsyncPage = Loadable({
   loading: () => null,
 });
 
+const AsyncPost = Loadable({
+  loader: () => import("./index").then(m => m.Post),
+  loading: () => null,
+});
+
 const AsyncPreview = Loadable({
   loader: () => import("./index").then(m => m.Preview),
   loading: () => null,
@@ -106,5 +111,6 @@ export {
   AsyncHome,
   AsyncPage,
   AsyncPreview,
-  AsyncNotFound
+  AsyncNotFound,
+  AsyncPost
 }

@@ -16,6 +16,7 @@ import ImageIconList from './ImageIconList';
 import ImageText from './ImageText';
 import Home from './Home';
 import Page from './Page';
+import Post from './Post';
 import Preview from './Preview';
 import NotFound from './NotFound';
 
@@ -39,5 +40,6 @@ export {
   Home,
   Page,
   Preview,
+  Post,
   NotFound
 }
