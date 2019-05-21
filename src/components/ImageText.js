@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
 import { StyledSection, StructuredText, ResponsiveImage } from '../styles';
-
+import LinkSerializer from '../LinkSerializer';
 
 const ImageRow = props => (
   <Fragment>
@@ -17,7 +17,7 @@ const ImageRow = props => (
           </Col>
           <Col lg={width} className="pl-lg-5">
             <StructuredText largetext>
-              {RichText.render(body1, PrismicConfig.linkResolver)}
+              {RichText.render(body1, PrismicConfig.linkResolver, LinkSerializer)}
             </StructuredText>
           </Col>
         </Fragment>
@@ -25,7 +25,7 @@ const ImageRow = props => (
         <Fragment>
           <Col lg={width}>
             <StructuredText largetext>
-              {RichText.render(body1, PrismicConfig.linkResolver)}
+              {RichText.render(body1, PrismicConfig.linkResolver, LinkSerializer)}
             </StructuredText>
           </Col>
           <Col className="pl-lg-5">

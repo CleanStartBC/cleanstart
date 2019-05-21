@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import { StructuredText, StyledSection } from '../styles';
 import PrismicConfig from '../prismic-configuration';
+import LinkSerializer from '../LinkSerializer';
 
 
 const ColumnsContent = props => (
@@ -10,7 +11,7 @@ const ColumnsContent = props => (
     {props.items.map(({ width, body1 }, index) =>
       <Col md={width} key={index}>
         <StructuredText largetext style={{ marginBottom: '3rem' }} >
-          {RichText.render(body1, PrismicConfig.linkResolver)}
+          {RichText.render(body1, PrismicConfig.linkResolver, LinkSerializer)}
         </StructuredText>
       </Col>
     )}

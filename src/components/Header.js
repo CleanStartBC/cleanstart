@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { StyledParallaxBanner } from '../styles';
 
 const Header = props => (
-  <StyledParallaxBanner className={`${props.slice.primary.color}`} height={props.slice.primary.height}
+  <StyledParallaxBanner className={`${props.slice.primary.color}`} height={props.slice.primary.height} id="top"
     layers={[
               {
                   image: props.slice.primary.image.url,
