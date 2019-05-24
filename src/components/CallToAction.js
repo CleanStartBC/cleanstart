@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { RichText } from 'prismic-reactjs';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Link, RichText } from 'prismic-reactjs';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 import { StructuredText, StyledParallaxBanner } from '../styles';
+import PrismicConfig from '../prismic-configuration';
 
 export default class CallToAction extends Component {
   render() {
@@ -28,7 +30,7 @@ export default class CallToAction extends Component {
                 </Col>
                 <Col md={{ size: 3, offset: 1 }}>
                   <div className={`text-right`}>
-                    <Button tag="a" size="lg" href={slice.primary.link} color="primary">{slice.primary.label}</Button>
+                    <RouterLink to={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  className={`btn btn-lg btn-primary`}>{slice.primary.label}</RouterLink>
                   </div>
                 </Col>
               </Fragment>
@@ -36,7 +38,7 @@ export default class CallToAction extends Component {
               <Col md={slice.primary.span} className="mx-auto text-center">
                 <StructuredText>
                   {RichText.render(slice.primary.body1)}
-                  <Button tag="a" size="lg" href={slice.primary.link} color="primary" className="mt-4">{slice.primary.label}</Button>
+                  <RouterLink to={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  className={`btn btn-lg btn-primary mt-4`}>{slice.primary.label}</RouterLink>
                 </StructuredText>
               </Col>
             }

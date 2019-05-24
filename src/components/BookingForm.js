@@ -295,10 +295,8 @@ class BookingForm extends Component {
                 </Row>
                 <Recaptcha
 									sitekey="6LfdQKUUAAAAAF8OoxCLkWi6IpG3KphVIVs4o-4o"
-                  render="explicit"
-                  onloadCallback={callback}
 								/>
-					      <Button color="primary" name="submit" type="submit" className="btn-lg btn-block mt-0">Book Free Estimate</Button>
+					      <Button color="primary" name="submit" type="submit" className="btn-lg btn-block mt-4">Book Free Estimate</Button>
 
 
 					    </form>

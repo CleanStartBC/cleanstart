@@ -133,12 +133,12 @@ export default class Navigation extends Component {
 											<FontAwesomeIcon icon="phone" color="#B0D35C" size="lg" className="mr-3" />
 										</Media>
 										<Media body>
-											<PhoneNumber>1-855-297-8278</PhoneNumber>
+											<PhoneNumber>{document.phone}</PhoneNumber>
 										</Media>
 									</Media>
 								</a>
 							</Nav>
-							<Button color="primary" size="lg">Book Now</Button>
+							<RouterLink to={Link.url(document.link, PrismicConfig.linkResolver)} className={`btn btn-lg btn-primary`}>{document.label}</RouterLink>
 		        </NavbarCollapse>
 
 					</Container>
