@@ -6,7 +6,6 @@ import SimpleReactValidator from 'simple-react-validator'
 import { StyledParallaxBanner, SliderTitleContainer, StyledLabel, Feature, StructuredText } from '../styles';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Recaptcha from 'react-recaptcha'
 
 /*global google*/
 
@@ -293,9 +292,7 @@ class BookingForm extends Component {
 
                   </Col>
                 </Row>
-                <Recaptcha
-									sitekey="6LfdQKUUAAAAAF8OoxCLkWi6IpG3KphVIVs4o-4o"
-								/>
+                <div data-netlify-recaptcha="true"></div>
 					      <Button color="primary" name="submit" type="submit" className="btn-lg btn-block mt-4">Book Free Estimate</Button>
 
 
