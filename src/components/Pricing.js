@@ -16,9 +16,9 @@ const PriceCards = props => (
           {
             (highlight === 'false')
             ?
-            <Button color="primary" outline size="md"  className="mb-3">Book Now</Button>
+            <Button color="primary" outline size="md">Book Now</Button>
             :
-            <Button color="primary" size="md" className="mb-3">Book Now</Button>
+            <Button color="primary" size="md">Book Now</Button>
           }
         </CardBody>
       </Card>

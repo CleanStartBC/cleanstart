@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { Container, Row, Col, Media } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import LinkSerializer from '../LinkSerializer';
 import { Feature, FaCircle, StyledSection, StructuredText } from '../styles';
 
 export default class Icon extends Component {
@@ -30,7 +30,7 @@ export default class Icon extends Component {
               </Media>
               <Media body className="pl-3">
                 <StructuredText largetext >
-                  {RichText.render(item.body1, PrismicConfig.linkResolver)}
+                  {RichText.render(item.body1, PrismicConfig.linkResolver, LinkSerializer)}
                 </StructuredText>
               </Media>
             </Feature>
@@ -43,7 +43,7 @@ export default class Icon extends Component {
               <Media body>
                 {isCircle}
                 <StructuredText largetext style={{ marginTop: '2rem' }}>
-                  {RichText.render(item.body1, PrismicConfig.linkResolver)}
+                  {RichText.render(item.body1, PrismicConfig.linkResolver, LinkSerializer)}
                 </StructuredText>
               </Media>
             </Feature>

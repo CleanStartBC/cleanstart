@@ -10,6 +10,8 @@ import Recaptcha from 'react-recaptcha'
 
 /*global google*/
 
+
+
 const encode = (data) => {
    return Object.keys(data)
        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -148,6 +150,10 @@ class BookingForm extends Component {
       strictBounds: true,
       componentRestrictions: { country: 'ca' }
     }
+
+    const callback = function () {
+      console.log('Recaptcha Loaded!!');
+    };
 
 		return(
 			<StyledParallaxBanner className={`bg-dark`}
@@ -289,6 +295,8 @@ class BookingForm extends Component {
                 </Row>
                 <Recaptcha
 									sitekey="6LfdQKUUAAAAAF8OoxCLkWi6IpG3KphVIVs4o-4o"
+                  render="explicit"
+                  onloadCallback={callback}
 								/>
 					      <Button color="primary" name="submit" type="submit" className="btn-lg btn-block mt-0">Book Free Estimate</Button>
 
