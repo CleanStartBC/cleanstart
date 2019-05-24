@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { StyledSection, StructuredText } from '../styles';
 
 
+
 export default class PostIndex extends Component {
   constructor(props){
     super(props)
@@ -29,18 +30,16 @@ export default class PostIndex extends Component {
       const { slice } = this.props
       const document = this.state.doc;
       const items = document.map(function(post, index){
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    		const pubDate = new Date(post.first_publication_date)
+
     		return(
           <Col md={slice.primary.post_column_size} key={index}>
             <StructuredText>
               <img src={post.data.featured_image.url} alt="" className="img-fluid mb-3"/>
               <h4>{RichText.asText(post.data.title)}</h4>
-              {RichText.render(post.data.excerpt)}
-              <div className="d-flex justify-content-between align-items-end">
-                <a href={PrismicConfig.linkResolver(post)} className="mt-3 d-inline-block">Read more.</a>
-                <small className="text-muted">{pubDate.toLocaleDateString("en-US", options)}</small>
-              </div>
+              {RichText.render(post.data.subtitle)}
+
+              <a href={PrismicConfig.linkResolver(post)} className="mt-3 d-inline-block">Read more.</a>
+
             </StructuredText>
           </Col>
     		)

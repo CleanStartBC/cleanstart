@@ -3,8 +3,6 @@ import qs from 'qs';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from '../prismic-configuration';
 
-const apiEndpoint = 'http://cleanstart.prismic.io/api/v2';
-
 export default class Preview extends React.Component {
 
   componentWillMount() {
@@ -13,7 +11,7 @@ export default class Preview extends React.Component {
 
   preview(props) {
     const params = qs.parse(this.props.location.search.slice(1))
-    Prismic.getApi(apiEndpoint)
+    Prismic.getApi(PrismicConfig.apiEndpoint)
       .then(api => { api.previewSession(params.token, PrismicConfig.linkResolver, '/')
       .then(url => {
         props.history.push(url);

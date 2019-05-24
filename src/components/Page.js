@@ -21,10 +21,6 @@ export default class Page extends Component {
     this.fetchPage(props);
   }
 
-	componentDidMount() {
-		window.scrollTo(0, 0);
-	}
-
 	fetchPage(props) {
     if (props.prismicCtx) {
       return props.prismicCtx.api.getByUID('page', props.match.params.uid, {}, (err, doc) => {

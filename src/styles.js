@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Media, Navbar, Collapse, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Media, Navbar, Collapse, DropdownMenu, DropdownToggle, Label } from 'reactstrap';
 import { Link as RouterLink } from 'react-router-dom';
 
 const StyledParallaxBanner = styled(ParallaxBanner)`
@@ -18,6 +18,14 @@ const StyledBanner = styled(ParallaxBanner)`
 		height: 50vh;
 	}
 `
+const BlogHeader = styled(ParallaxBanner)`
+  height:auto !important;
+  padding: 6rem 0;
+`
+const BlogBody = styled.main`
+  padding: 6rem 0;
+`
+
 const StyledSection = styled.section`
   padding-top: 6rem;
   padding-bottom: ${props => props.pbt ? "3rem" : "6rem"};
@@ -67,11 +75,22 @@ const StructuredText = styled.div`
   z-index: 2;
   position: relative;
   font-family: 'Graphik';
+  h2,h3,h4,h5,h6,p {
+    ${({ blogtext }) => blogtext && `
+      margin-bottom: 1.75rem;
+    `}
+  }
   p {
     ${({ largetext }) => largetext && `
       font-size: 1.125rem;
       @media (max-width: 575.98px) {
         font-size: 1rem;
+      }
+    `}
+    ${({ extralarge }) => extralarge && `
+      font-size: 1.25rem;
+      @media (max-width: 575.98px) {
+        font-size: 1.125rem;
       }
     `}
     &:last-child {
@@ -141,6 +160,9 @@ const SliderTitleContainer = styled.div`
     @media (max-width: 1200px) {
       font-size: calc(1.45rem + 2.4vw);
     }
+  }
+  p.lead {
+    font-size: 1.5rem;
   }
 `
 const TopFooter = styled.div`
@@ -292,13 +314,17 @@ const RippleLoader = styled.div`
     animation-delay: -0.5s;
   }
 `
-const LoaderBg = styled.div`
-  z-index: 10;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(121, 178, 65, 1);
+const StyledLabel = styled(Label)`
+  /* font-weight: 500;
+  letter-spacing: 0.02em; */
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 `
 
 export {
@@ -328,5 +354,7 @@ export {
   BottomFooter,
   PhoneNumber,
   RippleLoader,
-  LoaderBg,
+  BlogHeader,
+  BlogBody,
+  StyledLabel
 }

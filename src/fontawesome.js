@@ -1,6 +1,6 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMapMarkerAlt as faMapMarkerAltSolid } from '@fortawesome/pro-regular-svg-icons';
-import { faCircle, faQuoteLeft, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faQuoteLeft, faPhone, faCheck as faCheckSolid } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebookF,
   faFacebookMessenger,
@@ -91,6 +91,7 @@ library.add(
   faCarBattery,
   faChartLine,
   faCheck,
+  faCheckSolid,
   faChevronLeft,
   faChevronRight,
   faCircle,

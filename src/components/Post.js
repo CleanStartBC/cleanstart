@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import SliceZone from './SliceZone';
 import { AsyncNotFound } from './async';
 import Meta from '../meta';
 import Layout from '../Layout';
+import { BlogHeader, BlogBody, StructuredText } from '../styles';
+import { RichText } from 'prismic-reactjs';
+import { Container, Row, Col } from 'reactstrap';
+import PrismicConfig from '../prismic-configuration';
+import LinkSerializer from '../LinkSerializer';
 
 export default class Post extends Component {
 	constructor(props) {
@@ -37,12 +41,39 @@ export default class Post extends Component {
 	renderPage() {
 		if (this.state.doc) {
       const document = this.state.doc.data;
+			const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+			const pubDate = new Date(this.state.doc.first_publication_date)
 	    return (
 	      <>
 					{Meta(document)}
-					<main>
-						<SliceZone sliceZone={document.body} />
-					</main>
+					<BlogHeader className={`bg-primary`}
+						layers={[
+				              {
+				                  image: document.featured_image.url,
+				                  amount: 0.2,
+				              },
+				            ]}
+						>
+				      <Container fluid>
+				        <Row className={`align-items-center`}>
+				          <Col lg="8" className={`mx-auto`}>
+				            {RichText.render(document.title)}
+				            <p className={`lead mb-0`}>{pubDate.toLocaleDateString("en-US", options)}</p>
+				          </Col>
+				        </Row>
+				      </Container>
+				  </BlogHeader>
+					<BlogBody className={`bg-white`}>
+						<Container fluid>
+							<Row className={`align-items-center`}>
+								<Col lg="8" className={`mx-auto`}>
+									<StructuredText largetext blogtext>
+										{RichText.render(document.content, PrismicConfig.linkResolver, LinkSerializer)}
+									</StructuredText>
+								</Col>
+							</Row>
+						</Container>
+					</BlogBody>
 	     </>
 	    );
   	}

@@ -25,7 +25,7 @@ export default class Icon extends Component {
         return(
           <Col lg={item.size} key={index}>
             <Feature>
-              <Media left className="align-items-start">
+              <Media left>
                 {isCircle}
               </Media>
               <Media body className="pl-3">

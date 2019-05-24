@@ -101,6 +101,11 @@ const AsyncSocialMedia = Loadable({
   loading: () => null,
 });
 
+const AsyncBookingForm = Loadable({
+  loader: () => import("./index").then(m => m.BookingForm),
+  loading: () => null,
+});
+
 export {
   AsyncCarousel,
   AsyncFaq,
@@ -124,5 +129,6 @@ export {
   AsyncNotFound,
   AsyncPost,
   AsyncMenu,
-  AsyncSocialMedia
+  AsyncSocialMedia,
+  AsyncBookingForm
 }

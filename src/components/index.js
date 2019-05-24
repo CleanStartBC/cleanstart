@@ -21,6 +21,7 @@ import Preview from './Preview';
 import NotFound from './NotFound';
 import Menu from './Menu';
 import SocialMedia from './SocialMedia';
+import BookingForm from './BookingForm';
 
 export {
   Faq,
@@ -45,5 +46,6 @@ export {
   Post,
   NotFound,
   Menu,
-  SocialMedia
+  SocialMedia,
+  BookingForm
 }
