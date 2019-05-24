@@ -6,13 +6,10 @@ import Burger from '../../node_modules/react-css-burger/dist/';
 import NavLink from './NavLink';
 
 import {
-	Button,
 	Media,
 	Container,
-	// NavbarBrand,
 	Nav,
 	NavItem,
-	// DropdownItem,
 	UncontrolledDropdown } from 'reactstrap';
 import { Link as RouterLink } from 'react-router-dom';
 import {

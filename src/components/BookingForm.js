@@ -6,7 +6,7 @@ import SimpleReactValidator from 'simple-react-validator'
 import { StyledParallaxBanner, SliderTitleContainer, StyledLabel, Feature, StructuredText } from '../styles';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Recaptcha from 'react-recaptcha';
 /*global google*/
 
 
@@ -50,6 +50,7 @@ class BookingForm extends Component {
       preferredTime: '',
       service: '',
       address: '',
+      disabled: true
 		}
     this.changeEvent = this.changeEvent.bind(this);
   }
@@ -102,6 +103,16 @@ class BookingForm extends Component {
     }
   }
 
+  callback() {
+    console.log("recaptca reloaded!");
+  }
+
+  verifyCallback = response => {
+    if (response) {
+      this.setState({ disabled: false })
+    }
+  }
+
 	render () {
 
     const { slice } = this.props;
@@ -150,10 +161,6 @@ class BookingForm extends Component {
       componentRestrictions: { country: 'ca' }
     }
 
-    const callback = function () {
-      console.log('Recaptcha Loaded!!');
-    };
-
 		return(
 			<StyledParallaxBanner className={`bg-dark`}
 				layers={[
@@ -167,8 +174,7 @@ class BookingForm extends Component {
 					<Row className={`align-items-center justify-content-center`}>
             <Col sm={{ size: 6 }}>
               <SliderTitleContainer className={`mb-5`}>
-                {RichText.render(slice.primary.title)}
-                <p className={`lead`}>{RichText.asText(slice.primary.subtitle)}</p>
+                <h1 className={`mb-0`}>{RichText.asText(slice.primary.title)}</h1>
               </SliderTitleContainer>
               <Features items={slice.items} />
 
@@ -292,8 +298,13 @@ class BookingForm extends Component {
 
                   </Col>
                 </Row>
-                <div data-netlify-recaptcha="true"></div>
-					      <Button color="primary" name="submit" type="submit" className="btn-lg btn-block mt-4">Book Free Estimate</Button>
+                <Recaptcha
+                  sitekey="6LfdQKUUAAAAAF8OoxCLkWi6IpG3KphVIVs4o-4o"
+                  render="explicit"
+                  verifyCallback={this.verifyCallback}
+                  onloadCallback={this.callback}
+                />
+					      <Button color="primary" name="submit" type="submit" size="lg" className={`btn-block mt-4`} disabled={this.state.disabled}>Book Free Estimate</Button>
 
 
 					    </form>

@@ -162,7 +162,7 @@ const SliderTitleContainer = styled.div`
     }
   }
   p.lead {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 `
 const TopFooter = styled.div`
