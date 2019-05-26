@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PrismicConfig from './prismic-configuration';
 const Elements = RichText.Elements;
 
-
 // -- Function to add unique key to props
 const propsWithUniqueKey = function(props, key) {
   return Object.assign(props || {}, { key });
@@ -31,7 +30,6 @@ const LinkSerializer = function(type, element, content, children, key) {
       } else {
         return <Link key={key} to={{pathname: (element.data.url || PrismicConfig.linkResolver(element.data))}}>{children}</Link>
       }
-
 
     // Return null to stick with the default behavior
     default:

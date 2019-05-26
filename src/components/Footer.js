@@ -42,7 +42,7 @@ export default class Footer extends Component {
   renderImg(){
     if (this.state.doc) {
       const document = this.state.doc.data
-      return <img src={document.image.url} alt={document.image.alt} className="img-fluid mb-5 mb-md-0 footerImg" />
+      return <img src={document.image.url} alt={document.image.alt} className={`img-fluid mb-5 mb-md-0 footerImg`} />
     }
   }
 
@@ -60,7 +60,7 @@ export default class Footer extends Component {
           <Container fluid>
             <Row>
               <Col md="2">
-                <a href="/" className="d-block w-100 text-center">{this.renderImg()}</a>
+                <a href="/" className={`d-block w-100 text-center`}>{this.renderImg()}</a>
               </Col>
               <Col md={{ size: 9, offset: 1 }}>
                 <Row>{this.renderLinks()}</Row>
@@ -71,14 +71,14 @@ export default class Footer extends Component {
         <BottomFooter>
           <Container fluid>
             <Row>
-              <Col md="6" className="text-center text-md-left my-auto">
-                <p className="small mb-0">
-                  <FontAwesomeIcon icon={['far', 'map-marker-alt']} className="mr-2" />
+              <Col md="6" className={`text-center text-md-left my-auto`}>
+                <p className={`small mb-0`}>
+                  <FontAwesomeIcon icon={['far', 'map-marker-alt']} className={`mr-2`} />
                   210 – 3989 Henning Drive, Burnaby BC V5C 6P8
                 </p>
               </Col>
-              <Col md="6" className="text-center text-md-right my-auto">
-                <p className="small mb-0">{this.renderCopyText()}</p>
+              <Col md="6" className={`text-center text-md-right my-auto`}>
+                <p className={`small mb-0`}>{this.renderCopyText()}</p>
               </Col>
             </Row>
           </Container>

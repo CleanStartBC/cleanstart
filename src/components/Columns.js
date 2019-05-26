@@ -5,7 +5,6 @@ import { StructuredText, StyledSection } from '../styles';
 import PrismicConfig from '../prismic-configuration';
 import LinkSerializer from '../LinkSerializer';
 
-
 const ColumnsContent = props => (
   <Fragment>
     {props.items.map(({ width, body1 }, index) =>
@@ -33,7 +32,7 @@ const Columns = props => (
           :
           <Fragment>
             <Col lg={{ size: 3 }}>
-              { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className="mb-5 mb-sm-5 mb-md-0 text-center text-md-left">{RichText.render(props.slice.primary.body1)}</StructuredText>) }
+              { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className={`mb-5 mb-sm-5 mb-md-0 text-center text-md-left`}>{RichText.render(props.slice.primary.body1)}</StructuredText>) }
             </Col>
             <Col lg={{ size: 9 }}>
               <Row className={`${props.slice.primary.alignment} justify-content-center`}>

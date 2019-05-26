@@ -7,9 +7,8 @@ import { StyledParallaxBanner, SliderTitleContainer, StyledLabel, Feature, Struc
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Recaptcha from 'react-recaptcha';
+
 /*global google*/
-
-
 
 const encode = (data) => {
    return Object.keys(data)
@@ -26,9 +25,9 @@ const Features = props => (
     {props.items.map(({ callout_text, font_awesome },i) =>
       <Feature key={`callout_text` + i} className={`align-items-start`}>
         <Media left>
-          <FontAwesomeIcon icon={['fas', 'check']} size="2x" fixedWidth  className={`fontIcon`}/>
+          <FontAwesomeIcon icon={['fas', 'check']} size={`2x`} fixedWidth  className={`fontIcon`}/>
         </Media>
-        <Media body className="pl-3">
+        <Media body className={`pl-3`}>
           <StructuredText extralarge >
             {RichText.render(callout_text)}
           </StructuredText>
@@ -55,13 +54,19 @@ class BookingForm extends Component {
     this.changeEvent = this.changeEvent.bind(this);
   }
 
-  // componentWillMount() {
+  // loadScript() {
   //   const script = document.createElement("script");
   //   script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1bZH-qvcd5oiLv7F612YH-jHgzEMLCeA&libraries=places";
   //   script.async = true;
-  //
+  //   script.defer = true;
   //   document.body.appendChild(script);
   // }
+  //
+  // componentDidMount() {
+  //   if (!window.google) {
+  //     this.loadScript();
+  //    }
+  //  }
 
 	handleSubmit = e => {
 		e.preventDefault();
@@ -104,7 +109,7 @@ class BookingForm extends Component {
   }
 
   callback() {
-    console.log("recaptca reloaded!");
+    console.log("recaptca loaded!");
   }
 
   verifyCallback = response => {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import { Link, RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
@@ -78,8 +78,8 @@ const Slides = props => (
 )
 
 const Carousel = props => (
-  <Fragment>
+  <>
     <Slides items={props.slice.items} />
-  </Fragment>
+  </>
 )
 export default Carousel

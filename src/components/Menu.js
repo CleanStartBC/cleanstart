@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PrismicConfig from '../prismic-configuration';
 import { Link, RichText } from 'prismic-reactjs';
 import { Col } from 'reactstrap';
@@ -6,7 +6,7 @@ import { MenuTitle, MenuLink } from '../styles'
 
 
 const MenuItems = props => (
-  <Fragment>
+  <>
     {props.items.map(({ link, label }) =>
       <li className="nav-item" key={label} >
         <MenuLink href={Link.url(link, PrismicConfig.linkResolver)} >
@@ -14,7 +14,7 @@ const MenuItems = props => (
         </MenuLink>
       </li>
     )}
-  </Fragment>
+  </>
 )
 
 const Menu = props => (

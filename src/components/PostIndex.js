@@ -1,13 +1,11 @@
-import React, { Component, Fragment } from 'react'
-import Prismic from 'prismic-javascript';
+import React, { Component } from 'react';
 import { RichText } from 'prismic-reactjs';
+import { Container, Col, Row } from 'reactstrap';
+import { StructuredText, StyledSection } from '../styles';
 import PrismicConfig from '../prismic-configuration';
-import { Container, Row, Col } from 'reactstrap';
-import { StyledSection, StructuredText } from '../styles';
+import Prismic from 'prismic-javascript';
 
-
-
-export default class PostIndex extends Component {
+export default class Posts extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -25,39 +23,31 @@ export default class PostIndex extends Component {
       });
     });
   }
-  render(){
+
+  renderPosts() {
     if (this.state.doc) {
-      const { slice } = this.props
-      const document = this.state.doc;
-      const items = document.map(function(post, index){
-
-    		return(
-          <Col md={slice.primary.post_column_size} key={index}>
-            <StructuredText>
-              <img src={post.data.featured_image.url} alt="" className="img-fluid mb-3"/>
-              <h4>{RichText.asText(post.data.title)}</h4>
-              {RichText.render(post.data.subtitle)}
-
-              <a href={PrismicConfig.linkResolver(post)} className="mt-3 d-inline-block">Read more.</a>
-
-            </StructuredText>
-          </Col>
-    		)
-      })
-
-      return(
-        <StyledSection className="bg-white">
-          <Container fluid>
-            <Row>
-              {items}
-            </Row>
-          </Container>
-        </StyledSection>
+      return this.state.doc.map((item, index) =>
+        <Col sm={`4`} key={`${item.data.title}_` + index}>
+          <StructuredText>
+            <img src={item.data.featured_image.url} alt={item.data.featured_image.alt} className={`img-fluid mb-3`}/>
+            <h4>{RichText.asText(item.data.title)}</h4>
+            {RichText.render(item.data.subtitle)}
+            <a href={PrismicConfig.linkResolver(item)} className={`mt-3 d-inline-block`}>Read more.</a>
+          </StructuredText>
+        </Col>
       )
     }
+  }
+
+  render(){
     return(
-      <Fragment>
-      </Fragment>
+      <StyledSection className={`bg-white`}>
+        <Container fluid>
+          <Row>
+            {this.renderPosts()}
+          </Row>
+        </Container>
+      </StyledSection>
     )
   }
 }

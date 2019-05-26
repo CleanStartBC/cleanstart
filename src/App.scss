@@ -64,14 +64,18 @@ h1,h2,h3,h4,h5,h6 {
   max-width: 100%;
 }
 .custom-icon {
-  text-align: center;
+  // text-align: center;
 }
 .custom-icon img {
-  width: 120px;
+  width: 84px;
   display: inline-block;
   box-shadow: none !important;
 }
-
+.text-center.block-img {
+  img {
+    box-shadow: none;
+  }
+}
 span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
   border-radius: 0;
 }

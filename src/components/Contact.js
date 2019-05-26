@@ -1,68 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GoogleMapContainer from './GoogleMapContainer';
 import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import { StyledSection, MapWrapper } from '../styles';
 
-export default class Contact extends Component {
-  render(){
-    const { slice } = this.props;
-    const items = slice.items.map(function(item, index){
-      const options = { hour: 'numeric', minute: 'numeric' };
-      const start = new Date(item.day_start)
-      const end = new Date(item.day_end)
-      return(
-        <div key={index}>
-          <strong>{RichText.asText(item.day_label)}</strong>
-          <p>{start.toLocaleTimeString("en-US", options)} - {end.toLocaleTimeString("en-US", options)}</p>
-        </div>
-      )
-    })
+const options = { hour: 'numeric', minute: 'numeric' };
 
+const BusinessHours = props => {
+  const items = props.items.map(function(item, i) {
+    const start = new Date(item.day_start)
+    const end = new Date(item.day_end)
     return(
-      <StyledSection className={`${slice.primary.color} contact-page`}>
-        <Container fluid>
-          <Row className="justify-content-center">
-
-
-							<Col lg="8" className="text-center">
-									<h1 className="mb-5">{RichText.asText(slice.primary.name1)}</h1>
-									<MapWrapper>
-										<GoogleMapContainer location={slice.primary.geolocation} name="CleanStart" address={RichText.asText(slice.primary.address)} />
-									</MapWrapper>
-
-							</Col>
-
-							<Col lg="5">
-
-								<div className="d-block mb-3">
-									<strong>Phone</strong>
-									<p><a href={`tel:${RichText.asText(slice.primary.phone)}`}>{RichText.asText(slice.primary.phone)}</a></p>
-								</div>
-								<div className="d-block mb-3">
-									<strong>Email</strong>
-									<p><a href={`mailto:${RichText.asText(slice.primary.email)}`}>{RichText.asText(slice.primary.email)}</a></p>
-								</div>
-								<div className="d-block">
-									<strong>Address</strong>
-									<p className="mb-0">
-										<a href={`http://maps.google.com/?q=${RichText.asText(slice.primary.address)}`}>
-											{RichText.asText(slice.primary.address)}
-										</a>
-									</p>
-								</div>
-							</Col>
-
-							<Col lg={{ size: 3 }} className="pl-lg-5 mt-4 mt-md-0 border-left">
-								{items}
-
-							</Col>
-
-
-
-          </Row>
-        </Container>
-      </StyledSection>
+      <div key={i}>
+        <strong>{RichText.asText(item.day_label)}</strong>
+        <p>{start.toLocaleTimeString("en-US", options)} - {end.toLocaleTimeString("en-US", options)}</p>
+      </div>
     )
-  }
+  })
+  return items
 }
+
+const Contact = props => (
+  <StyledSection className={`${props.slice.primary.color} contact-page`}>
+    <Container fluid>
+      <Row className={`justify-content-center`}>
+        <Col lg="8" className={`text-center`}>
+          <h1 className="mb-5">{RichText.asText(props.slice.primary.name1)}</h1>
+          <MapWrapper>
+            <GoogleMapContainer location={props.slice.primary.geolocation} name="CleanStart" address={RichText.asText(props.slice.primary.address)} />
+          </MapWrapper>
+        </Col>
+        <Col lg="5">
+          <div className="d-block mb-3">
+            <strong>Phone</strong>
+            <p><a href={`tel:${RichText.asText(props.slice.primary.phone)}`}>{RichText.asText(props.slice.primary.phone)}</a></p>
+          </div>
+          <div className="d-block mb-3">
+            <strong>Email</strong>
+            <p><a href={`mailto:${RichText.asText(props.slice.primary.email)}`}>{RichText.asText(props.slice.primary.email)}</a></p>
+          </div>
+          <div className="d-block">
+            <strong>Address</strong>
+            <p className="mb-0">
+              <a href={`http://maps.google.com/?q=${RichText.asText(props.slice.primary.address)}`}>
+                {RichText.asText(props.slice.primary.address)}
+              </a>
+            </p>
+          </div>
+        </Col>
+        <Col lg={{ size: 3 }} className="pl-lg-5 mt-4 mt-md-0 border-left">
+          <BusinessHours items={props.slice.items} />
+        </Col>
+      </Row>
+    </Container>
+  </StyledSection>
+)
+
+export default Contact

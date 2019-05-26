@@ -14,10 +14,10 @@ const Logo = props => (
 )
 
 const Logos = props => (
-  <StyledSection className="bg-white" style={{ paddingBottom: '3rem' }}>
+  <StyledSection className={`bg-white`} pbt>
     <Container fluid>
       { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(props.slice.primary.body1)}</StructuredText>) }
-      <Row className="justify-content-center">
+      <Row className={`justify-content-center`}>
         <Col md="10" className="mx-auto">
           <Row>
             <Logo items={props.slice.items} />

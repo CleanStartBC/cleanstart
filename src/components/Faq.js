@@ -28,14 +28,12 @@ export default class Faq extends Component {
                 <Fragment>
                   <Col lg="12">
                     { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
-
-                      {Object.keys(items).map((key, index) =>
-                        <QuestionAnswer key={index}
-                          cat={items[key]}
-                          isOpen={this.state.collapse === items[key]}
-                          toggle={this.toggle} />
-                      )}
-
+                    {Object.keys(items).map((key, index) =>
+                      <QuestionAnswer key={index}
+                        cat={items[key]}
+                        isOpen={this.state.collapse === items[key]}
+                        toggle={this.toggle} />
+                    )}
                   </Col>
                 </Fragment>
                 :
@@ -44,16 +42,12 @@ export default class Faq extends Component {
                     { ((typeof slice.primary.body1 !== 'undefined' && typeof slice.primary.body1[0] !== 'undefined') && slice.primary.body1[0].text ) && (<StructuredText>{RichText.render(slice.primary.body1)}</StructuredText>) }
                   </Col>
                   <Col lg={{ size: 9 }}>
-
-
-                        {Object.keys(items).map((key, index) =>
-                          <QuestionAnswer key={index}
-                            cat={items[key]}
-                            isOpen={this.state.collapse === items[key]}
-                            toggle={this.toggle} />
-                        )}
-
-
+                    {Object.keys(items).map((key, index) =>
+                      <QuestionAnswer key={index}
+                        cat={items[key]}
+                        isOpen={this.state.collapse === items[key]}
+                        toggle={this.toggle} />
+                    )}
                   </Col>
                 </Fragment>
               }
