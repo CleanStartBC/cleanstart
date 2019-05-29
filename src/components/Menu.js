@@ -1,15 +1,14 @@
 import React from 'react';
 import PrismicConfig from '../prismic-configuration';
-import { Link, RichText } from 'prismic-reactjs';
+import { RichText } from 'prismic-reactjs';
 import { Col } from 'reactstrap';
 import { MenuTitle, MenuLink } from '../styles'
-
 
 const MenuItems = props => (
   <>
     {props.items.map(({ link, label }) =>
       <li className="nav-item" key={label} >
-        <MenuLink href={Link.url(link, PrismicConfig.linkResolver)} >
+        <MenuLink to={PrismicConfig.linkResolver(link)} >
           {label}
         </MenuLink>
       </li>

@@ -58,7 +58,20 @@ const MenuTitle = styled.h6`
   margin-bottom: 1.5rem;
 `
 
-const MenuLink = styled.a`
+const SocialMediaLink = styled.a`
+  font-family: 'Graphik';
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0;
+  padding-right: 0;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+`
+
+const MenuLink = styled(RouterLink)`
   font-family: 'Graphik';
   display: block;
   padding-top: 0.75rem;
@@ -356,5 +369,6 @@ export {
   RippleLoader,
   BlogHeader,
   BlogBody,
-  StyledLabel
+  StyledLabel,
+  SocialMediaLink
 }

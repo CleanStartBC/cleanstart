@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
-import {  RichText } from 'prismic-reactjs';
-import { Container, Card, CardHeader, Button, CardDeck, CardBody } from 'reactstrap';
+import { Link, RichText } from 'prismic-reactjs';
+import { Container, Card, CardHeader,CardDeck, CardBody } from 'reactstrap';
 import { StyledParallaxBanner, StructuredText } from '../styles';
+import { Link as RouterLink } from 'react-router-dom';
+import PrismicConfig from '../prismic-configuration';
 
 const PriceCards = props => (
   <Fragment>
@@ -16,15 +18,16 @@ const PriceCards = props => (
           {
             (highlight === 'false')
             ?
-            <Button color="primary" outline size="md">Book Now</Button>
+            <RouterLink to={`${Link.url(props.redirectLink, PrismicConfig.linkResolver)}`} className={`btn btn-outline-primary mb-3`}>Book Now</RouterLink>
             :
-            <Button color="primary" size="md">Book Now</Button>
+            <RouterLink to={`${Link.url(props.redirectLink, PrismicConfig.linkResolver)}`}  className={`btn btn-primary mb-3`}>Book Now</RouterLink>
           }
         </CardBody>
       </Card>
     )}
   </Fragment>
 )
+
 
 const Pricing = props => (
   <StyledParallaxBanner image={props.slice.primary.image.url} className={`${props.slice.primary.color}`}
@@ -38,7 +41,7 @@ const Pricing = props => (
     <Container fluid>
       { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className="mb-5" >{RichText.render(props.slice.primary.body1)}</StructuredText>) }
       <CardDeck>
-        <PriceCards items={props.slice.items} />
+        <PriceCards items={props.slice.items} redirectLink={props.slice.primary.redirect_link} />
       </CardDeck>
     </Container>
   </StyledParallaxBanner>

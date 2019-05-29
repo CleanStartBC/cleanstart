@@ -1,18 +1,18 @@
 import React, { Fragment } from 'react';
 import PrismicConfig from '../prismic-configuration';
-import { Link, RichText } from 'prismic-reactjs';
+import { RichText, Link } from 'prismic-reactjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col } from 'reactstrap';
-import { MenuTitle, MenuLink } from '../styles'
+import { MenuTitle, SocialMediaLink } from '../styles'
 
 const MenuItems = props => (
   <Fragment>
     {props.items.map(({ link, label, font_awesome }) =>
       <li className="nav-item" key={label} >
-        <MenuLink href={Link.url(link, PrismicConfig.linkResolver)} >
+        <SocialMediaLink href={Link.url(link, PrismicConfig.linkResolver)} >
           <FontAwesomeIcon icon={['fab', font_awesome]} fixedWidth className="mr-2" />
           {label}
-        </MenuLink>
+        </SocialMediaLink>
       </li>
     )}
   </Fragment>
