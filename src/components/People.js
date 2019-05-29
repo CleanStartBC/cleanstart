@@ -23,7 +23,7 @@ const People = props => (
               { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className={`mb-5 mb-sm-5 mb-md-0 text-center text-md-left`} >{RichText.render(props.slice.primary.body1)}</StructuredText>) }
             </Col>
             <Col lg={{ size: 9 }}>
-              <Row className={`${props.slice.primary.alignment} justify-content-center`}>
+              <Row className={`${props.slice.primary.alignment}`}>
                 <Person items={props.slice.items}/>
               </Row>
             </Col>
