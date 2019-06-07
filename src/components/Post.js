@@ -49,7 +49,7 @@ export default class Post extends Component {
 					<BlogHeader className={`bg-primary`}
 						layers={[
 				              {
-				                  image: document.featured_image.url,
+				                  image: process.env.PUBLIC_URL + '/images/bg-green.svg',
 				                  amount: 0.2,
 				              },
 				            ]}
