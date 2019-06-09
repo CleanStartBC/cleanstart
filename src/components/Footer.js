@@ -3,6 +3,8 @@ import { Container, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TopFooter, BottomFooter } from '../styles'
 import SliceZone from './SliceZone';
+import logo from '../images/cleanstartbc-logo-white.png';
+
 
 export default class Footer extends Component {
   constructor(props) {
@@ -39,13 +41,6 @@ export default class Footer extends Component {
     }
   }
 
-  renderImg(){
-    if (this.state.doc) {
-      const document = this.state.doc.data
-      return <img src={document.image.url} alt={document.image.alt} className={`img-fluid mb-5 mb-md-0 footerImg`} />
-    }
-  }
-
   renderCopyText() {
     if (this.state.doc) {
       const document = this.state.doc.data
@@ -60,7 +55,9 @@ export default class Footer extends Component {
           <Container fluid>
             <Row>
               <Col md="2">
-                <a href="/" className={`d-block w-100 text-center`}>{this.renderImg()}</a>
+                <a href="/" className={`d-block w-100 text-center`}>
+                  <img src={logo} alt="CleanStart BC - Property Services" className={`img-fluid mb-5 mb-md-0 footerImg`} />
+                </a>
               </Col>
               <Col md={{ size: 9, offset: 1 }}>
                 <Row>{this.renderLinks()}</Row>
@@ -74,7 +71,7 @@ export default class Footer extends Component {
               <Col md="6" className={`text-center text-md-left my-auto`}>
                 <p className={`small mb-0`}>
                   <FontAwesomeIcon icon={['far', 'map-marker-alt']} className={`mr-2`} />
-                  210 – 3989 Henning Drive, Burnaby BC V5C 6P8
+                  250 - 618 Columbia Street, New Westminster BC, V3M 1A5
                 </p>
               </Col>
               <Col md="6" className={`text-center text-md-right my-auto`}>
