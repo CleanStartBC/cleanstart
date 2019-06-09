@@ -4,11 +4,9 @@ import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col, Button, FormGroup, Input, Label, Media } from 'reactstrap';
 import SimpleReactValidator from 'simple-react-validator'
 import { StyledParallaxBanner, SliderTitleContainer, StyledLabel, Feature, StructuredText } from '../styles';
-import PlacesAutocomplete from 'react-places-autocomplete';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Recaptcha from 'react-recaptcha';
-
-/*global google*/
+import PlacesWithOptions from './PlacesWithOptions';
 
 const encode = (data) => {
    return Object.keys(data)
@@ -53,20 +51,6 @@ class BookingForm extends Component {
 		}
     this.changeEvent = this.changeEvent.bind(this);
   }
-
-  // loadScript() {
-  //   const script = document.createElement("script");
-  //   script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1bZH-qvcd5oiLv7F612YH-jHgzEMLCeA&libraries=places";
-  //   script.async = true;
-  //   script.defer = true;
-  //   document.body.appendChild(script);
-  // }
-  //
-  // componentDidMount() {
-  //   if (!window.google) {
-  //     this.loadScript();
-  //    }
-  //  }
 
 	handleSubmit = e => {
 		e.preventDefault();
@@ -155,17 +139,6 @@ class BookingForm extends Component {
       )
     })
 
-    const serviceBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(48,-124),
-      new google.maps.LatLng(50,-121),
-    )
-
-    const searchOptions = {
-      bounds: serviceBounds,
-      strictBounds: true,
-      componentRestrictions: { country: 'ca' }
-    }
-
 		return(
 			<StyledParallaxBanner className={`bg-dark`}
 				layers={[
@@ -212,44 +185,7 @@ class BookingForm extends Component {
                   <Col sm={`12`}>
                     <FormGroup className={`mb-4`}>
                       <StyledLabel htmlFor="Address">Address</StyledLabel>
-                      <PlacesAutocomplete
-                        value={address}
-                        onChange={this.handleAddress}
-                        searchOptions={searchOptions}
-                      >
-                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                          <div>
-                            <input
-                              {...getInputProps({
-                                placeholder: 'Address',
-                                className: 'location-search-input form-control rounded-0',
-                              })}
-                            />
-                            <div className="autocomplete-dropdown-container">
-                              {loading && <div>Loading...</div>}
-                              {suggestions.map(suggestion => {
-                                const className = suggestion.active
-                                  ? 'suggestion-item--active'
-                                  : 'suggestion-item';
-
-                                const style = suggestion.active
-                                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                                return (
-                                  <div
-                                    {...getSuggestionItemProps(suggestion, {
-                                      className,
-                                      style,
-                                    })}
-                                  >
-                                    <span>{suggestion.description}</span>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        )}
-                      </PlacesAutocomplete>
+                      <PlacesWithOptions address={address} handleAddress={this.handleAddress} />
                       {this.validator.message('address', values.address, 'required', {className: 'text-danger'})}
 
                     </FormGroup>
