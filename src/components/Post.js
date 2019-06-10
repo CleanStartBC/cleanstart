@@ -56,7 +56,7 @@ export default class Post extends Component {
 						>
 				      <Container fluid>
 				        <Row className={`align-items-center`}>
-				          <Col lg="8" className={`mx-auto`}>
+				          <Col lg="8" className={`mx-auto text-center`}>
 				            {RichText.render(document.title)}
 				            <p className={`lead mb-0`}>{pubDate.toLocaleDateString("en-US", options)}</p>
 				          </Col>

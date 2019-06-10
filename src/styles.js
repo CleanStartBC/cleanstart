@@ -12,8 +12,7 @@ const StyledParallaxBanner = styled(ParallaxBanner)`
   }
 `
 const StyledBanner = styled(ParallaxBanner)`
-	height: auto !important;
-	padding: 12rem 0;
+	height: 562px !important;
 	@media (max-width: 575.98px) {
 		height: 50vh;
 	}

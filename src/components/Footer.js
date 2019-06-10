@@ -41,10 +41,28 @@ export default class Footer extends Component {
     }
   }
 
-  renderCopyText() {
+  renderBottom() {
     if (this.state.doc) {
       const document = this.state.doc.data
-      return <>{document.copyright}</>
+      return(
+        <BottomFooter>
+          <Container fluid>
+            <Row>
+              <Col md="6" className={`text-center text-md-left my-auto`}>
+                <p className={`small mb-0`}>
+                  <FontAwesomeIcon icon={['far', 'map-marker-alt']} className={`mr-2`} />
+                  {document.address}
+                </p>
+              </Col>
+              <Col md="6" className={`text-center text-md-right my-auto`}>
+                <p className={`small mb-0`}>
+                  {document.copyright}
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </BottomFooter>
+      )
     }
   }
 
@@ -65,21 +83,7 @@ export default class Footer extends Component {
             </Row>
           </Container>
         </TopFooter>
-        <BottomFooter>
-          <Container fluid>
-            <Row>
-              <Col md="6" className={`text-center text-md-left my-auto`}>
-                <p className={`small mb-0`}>
-                  <FontAwesomeIcon icon={['far', 'map-marker-alt']} className={`mr-2`} />
-                  250 - 618 Columbia Street, New Westminster BC, V3M 1A5
-                </p>
-              </Col>
-              <Col md="6" className={`text-center text-md-right my-auto`}>
-                <p className={`small mb-0`}>{this.renderCopyText()}</p>
-              </Col>
-            </Row>
-          </Container>
-        </BottomFooter>
+        {this.renderBottom()}
       </footer>
     )
   }

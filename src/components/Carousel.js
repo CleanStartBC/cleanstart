@@ -51,11 +51,11 @@ const Slides = props => (
   <Slider {...settings}>
     {props.items.map(({ alignment, title1, subtext, image, span, link, color }, index) =>
       <header key={index}>
-        <StyledBanner className={`carousel-section ${color}`}
+        <StyledBanner className={`carousel-section ${color} align-items-center d-flex`}
           layers={[
                     {
                         image: image.url,
-                        amount: 0.25,
+                        amount: 0.25
                     },
                   ]}
           >
