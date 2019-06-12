@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleMapContainer from './GoogleMapContainer';
-import { RichText } from 'prismic-reactjs';
+import { RichText, Date } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import { StyledSection, MapWrapper } from '../styles';
 
@@ -8,12 +8,16 @@ const options = { hour: 'numeric', minute: 'numeric' };
 
 const BusinessHours = props => {
   const items = props.items.map(function(item, i) {
-    const start = new Date(item.day_start)
-    const end = new Date(item.day_end)
+    const start = Date(item.day_start)
+    const end = Date(item.day_end)
+
+    const formattedStart = Intl.DateTimeFormat('en-us', options).format(start)
+    const formattedEnd = Intl.DateTimeFormat('en-us', options).format(end)
+
     return(
       <div key={i}>
         <strong>{RichText.asText(item.day_label)}</strong>
-        <p>{start.toLocaleTimeString("en-US", options)} - {end.toLocaleTimeString("en-US", options)}</p>
+        <p>{formattedStart} - {formattedEnd}</p>
       </div>
     )
   })

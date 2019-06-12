@@ -3,7 +3,7 @@ import { AsyncNotFound } from './async';
 import Meta from '../meta';
 import Layout from '../Layout';
 import { BlogHeader, BlogBody, StructuredText } from '../styles';
-import { RichText } from 'prismic-reactjs';
+import { RichText, Date } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import PrismicConfig from '../prismic-configuration';
 import LinkSerializer from '../LinkSerializer';
@@ -42,7 +42,10 @@ export default class Post extends Component {
 		if (this.state.doc) {
       const document = this.state.doc.data;
 			const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-			const pubDate = new Date(this.state.doc.first_publication_date)
+			const pubDate = Date(this.state.doc.first_publication_date)
+
+			const formattedPub = Intl.DateTimeFormat('en-us', options).format(pubDate)
+
 	    return (
 	      <>
 					{Meta(document)}
@@ -58,7 +61,7 @@ export default class Post extends Component {
 				        <Row className={`align-items-center`}>
 				          <Col lg="8" className={`mx-auto text-center`}>
 				            {RichText.render(document.title)}
-				            <p className={`lead mb-0`}>{pubDate.toLocaleDateString("en-US", options)}</p>
+				            <p className={`lead mb-0`}>{formattedPub}</p>
 				          </Col>
 				        </Row>
 				      </Container>
