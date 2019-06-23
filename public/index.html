@@ -24,12 +24,6 @@
     -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1bZH-qvcd5oiLv7F612YH-jHgzEMLCeA&libraries=places" async defer></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-    <script>
-      window.prismic = {
-        endpoint: 'https://cleanstart.cdn.prismic.io/api/v2'
-      };
-    </script>
-    <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" async defer></script>
     <title>CleanStart</title>
   </head>
   <body>
@@ -44,6 +38,12 @@
       <input type="text" name="preferredDays" />
     </form>
     <div id="root"></div>
+    <script>
+      window.prismic = {
+        endpoint: 'https://cleanstart.cdn.prismic.io/api/v2'
+      };
+    </script>
+    <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
