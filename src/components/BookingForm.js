@@ -47,6 +47,7 @@ class BookingForm extends Component {
       preferredTime: '',
       service: '',
       address: '',
+      description: '',
       disabled: true
 		}
     this.changeEvent = this.changeEvent.bind(this);
@@ -113,7 +114,8 @@ class BookingForm extends Component {
 			service,
       preferredDays,
       preferredTime,
-      address
+      address,
+      description
 		} = this.state;
 		const values = {
       name,
@@ -122,7 +124,8 @@ class BookingForm extends Component {
 			service,
       preferredDays,
       preferredTime,
-      address
+      address,
+      description
 		}
 
     let weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Weekends'];
@@ -164,21 +167,21 @@ class BookingForm extends Component {
                   <Col sm={`12`}>
                     <FormGroup className={`mb-4`}>
                       <StyledLabel htmlFor="name">Name</StyledLabel>
-                      <input id="name" name="name" placeholder="Name" type="text" value={name} onChange={this.handleChange} className="form-control rounded-0 here"/>
+                      <input id="name" name="name" placeholder="Name" type="text" value={name} onChange={this.handleChange} className="form-control rounded-0"/>
                       {this.validator.message('name', values.name, 'required', {className: 'text-danger'})}
                     </FormGroup>
                   </Col>
                   <Col sm={`6`}>
                     <FormGroup className={`mb-4`}>
                       <StyledLabel htmlFor="phone">Phone</StyledLabel>
-                      <input id="phone" name="phone" placeholder="Phone" type="text" value={phone} onChange={this.handleChange} className="form-control rounded-0 here"/>
+                      <input id="phone" name="phone" placeholder="Phone" type="text" value={phone} onChange={this.handleChange} className="form-control rounded-0"/>
                       {this.validator.message('phone', values.phone, 'required|phone', {className: 'text-danger'})}
                     </FormGroup>
                   </Col>
                   <Col sm={`6`}>
                     <FormGroup className={`mb-4`}>
                       <StyledLabel htmlFor="email">Email</StyledLabel>
-                      <input id="email" name="email" placeholder="Email" type="text" value={email} onChange={this.handleChange} className="form-control rounded-0 here"/>
+                      <input id="email" name="email" placeholder="Email" type="text" value={email} onChange={this.handleChange} className="form-control rounded-0"/>
                       {this.validator.message('email', values.email, 'required|email', {className: 'text-danger'})}
                     </FormGroup>
                   </Col>
@@ -236,7 +239,13 @@ class BookingForm extends Component {
                       {checkboxes}
                     </FormGroup>
                     {''}
-
+                  </Col>
+                  <Col sm={`12`}>
+                    <FormGroup className="mb-4">
+                      <StyledLabel htmlFor="description">Description</StyledLabel>
+                      <Input type="textarea" name="description" id="description" placeholder="Please describe the kind, and amount of junk..." value={description} onChange={this.handleChange} className="form-control rounded-0" />
+                      {this.validator.message('description', values.description, 'required', {className: 'text-danger'})}
+                    </FormGroup>
                   </Col>
                 </Row>
                 <Recaptcha
@@ -246,8 +255,6 @@ class BookingForm extends Component {
                   onloadCallback={this.callback}
                 />
 					      <Button color="primary" name="submit" type="submit" size="lg" className={`btn-block mt-4`} disabled={this.state.disabled}>Book Free Estimate</Button>
-
-
 					    </form>
 						</Col>
 					</Row>

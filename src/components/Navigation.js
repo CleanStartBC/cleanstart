@@ -4,13 +4,14 @@ import PrismicConfig from '../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Burger from '../../node_modules/react-css-burger/dist/';
 import NavLink from './NavLink';
-
+import { LinkContainer } from 'react-router-bootstrap'
 import {
 	Media,
 	Container,
 	Nav,
 	NavItem,
-	UncontrolledDropdown } from 'reactstrap';
+	UncontrolledDropdown,
+ 	DropdownItem } from 'reactstrap';
 import { Link as RouterLink } from 'react-router-dom';
 import {
 	StyledNavbar,
@@ -28,7 +29,7 @@ import logo from '../images/cleanstartbc-logo.png';
 const NavItems = props => {
 	return props.slice.items.map((item, i) => {
 		if (typeof item.label[0] !== "undefined") {
-			return <RouterLink key={i} className="dropdown-item" to={`${Link.url(item.link, PrismicConfig.linkResolver)}`}>{item.label}</RouterLink>
+			return <LinkContainer onClick={props.closeNavbar} key={i} to={`${Link.url(item.link, PrismicConfig.linkResolver)}`}><DropdownItem key={i} tag="a">{item.label}</DropdownItem></LinkContainer>
 		} else {
 			return null
 		}
@@ -48,12 +49,12 @@ const NavContent = props => {
 							{slice.primary.label}
 						</StyledToggle>
 						<StyledDropdownMenu right>
-							<NavItems slice={slice} />
+							<NavItems slice={slice} closeNavbar={props.closeNavbar} />
 						</StyledDropdownMenu>
 					</UncontrolledDropdown>
 					:
 					<NavItem>
-						<NavLink name={slice.primary.label} path={`${Link.url(slice.primary.link, PrismicConfig.linkResolver)}`}  />
+						<NavLink closeNavbar={props.closeNavbar} name={slice.primary.label} path={`${Link.url(slice.primary.link, PrismicConfig.linkResolver)}`}  />
 					</NavItem>
 				}
 				</Fragment>
@@ -72,10 +73,16 @@ export default class Navigation extends Component {
 			isOpen: false,
 			doc: null
 		};
+		this.closeNavbar = this.closeNavbar.bind(this)
 	}
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
+		});
+	}
+	closeNavbar() {
+		this.setState({
+			isOpen: false
 		});
 	}
 	componentWillMount() {
@@ -102,7 +109,7 @@ export default class Navigation extends Component {
 	renderNav() {
 		if (this.state.doc) {
 			const document = this.state.doc.data
-			return <NavContent items={document.nav} />
+			return <NavContent items={document.nav} closeNavbar={this.closeNavbar} />
 		}
 	}
 
