@@ -92,7 +92,11 @@ const StructuredText = styled.div`
       margin-bottom: 1.75rem;
     `}
   }
-  p {
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+  p, li {
     ${({ largetext }) => largetext && `
       font-size: 1.125rem;
       @media (max-width: 575.98px) {
@@ -121,11 +125,17 @@ const StructuredText = styled.div`
       margin: 0 auto;
     }
   }
+  li {
+    margin-bottom: 0.5rem;
+  }
   img {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;
   }
 `
 const SliderLink = styled.a`
+  display: block;
+  position: relative;
+  z-index:10;
   &:hover {
     text-decoration: none;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import 'fontawesome';
+import './fontawesome';
 import './App.scss';
 import { AsyncHome, AsyncPage, AsyncPost, AsyncPreview } from './components/async';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
