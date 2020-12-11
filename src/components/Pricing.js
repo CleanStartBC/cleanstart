@@ -4,6 +4,7 @@ import { Container, Card, CardHeader,CardDeck, CardBody } from 'reactstrap';
 import { StyledParallaxBanner, StructuredText } from '../styles';
 import { Link as RouterLink } from 'react-router-dom';
 import PrismicConfig from '../prismic-configuration';
+import LinkSerializer from '../LinkSerializer';
 
 const PriceCards = props => (
   <Fragment>
@@ -39,7 +40,7 @@ const Pricing = props => (
             ]}
     >
     <Container fluid>
-      { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className="mb-5" >{RichText.render(props.slice.primary.body1)}</StructuredText>) }
+      { ((typeof props.slice.primary.body1 !== 'undefined' && typeof props.slice.primary.body1[0] !== 'undefined') && props.slice.primary.body1[0].text ) && (<StructuredText className="mb-5" >{RichText.render(props.slice.primary.body1, PrismicConfig.linkResolver, LinkSerializer)}</StructuredText>) }
       <CardDeck>
         <PriceCards items={props.slice.items} redirectLink={props.slice.primary.redirect_link} />
       </CardDeck>

@@ -61,7 +61,7 @@ export default class Post extends Component {
 				        <Row className={`align-items-center`}>
 				          <Col lg="8" className={`mx-auto text-center`}>
 				            {RichText.render(document.title)}
-				            <p className={`lead mb-0`}>{formattedPub}</p>
+				            {/* <p className={`lead mb-0`}>{formattedPub}</p> */}
 				          </Col>
 				        </Row>
 				      </Container>

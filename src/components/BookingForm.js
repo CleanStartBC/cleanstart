@@ -243,7 +243,7 @@ class BookingForm extends Component {
                   <Col sm={`12`}>
                     <FormGroup className="mb-4">
                       <StyledLabel htmlFor="description">Description</StyledLabel>
-                      <Input type="textarea" name="description" id="description" placeholder="Please describe the kind, and amount of junk..." value={description} onChange={this.handleChange} className="form-control rounded-0" />
+                      <Input type="textarea" name="description" id="description" placeholder="Please describe the kind of service you need" value={description} onChange={this.handleChange} className="form-control rounded-0" />
                       {this.validator.message('description', values.description, 'required', {className: 'text-danger'})}
                     </FormGroup>
                   </Col>
