@@ -3,7 +3,7 @@ import { AsyncNotFound } from './async';
 import Meta from '../meta';
 import Layout from '../Layout';
 import { BlogHeader, BlogBody, StructuredText } from '../styles';
-import { RichText, Date } from 'prismic-reactjs';
+import { RichText } from 'prismic-reactjs';
 import { Container, Row, Col } from 'reactstrap';
 import PrismicConfig from '../prismic-configuration';
 import LinkSerializer from '../LinkSerializer';
@@ -41,10 +41,6 @@ export default class Post extends Component {
 	renderPage() {
 		if (this.state.doc) {
       const document = this.state.doc.data;
-			const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-			const pubDate = Date(this.state.doc.first_publication_date)
-
-			const formattedPub = Intl.DateTimeFormat('en-us', options).format(pubDate)
 
 	    return (
 	      <>
