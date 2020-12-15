@@ -208,6 +208,7 @@ class BookingForm extends Component {
                         <option>Hoarding cleanup</option>
                         <option>Pest Control</option>
                         <option>Extreme Cleaning</option>
+                        <option>Sanitization</option>
                         <option>Two or more services</option>
                       </Input>
                       {this.validator.message('service', values.service, 'required', {className: 'text-danger'})}
