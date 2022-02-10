@@ -12,7 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": ">=4.3.1",
     "google-maps-react": "^2.0.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prismic-javascript": "^2.0.1",
     "prismic-reactjs": "^0.3.2",
     "prop-types": "^15.7.2",
