@@ -16,7 +16,7 @@
     "prismic-javascript": "^2.0.1",
     "prismic-reactjs": "^0.3.2",
     "prop-types": "^15.7.2",
-    "qs": "^6.6.0",
+    "qs": "^6.6.1",
     "react": "^16.7.0",
     "react-css-burger": "CleanStartBC/react-css-burger",
     "react-dom": "^16.7.0",
